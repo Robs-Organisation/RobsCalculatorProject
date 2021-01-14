@@ -27,5 +27,5 @@ jobs:
     - name: build with buffalo
       run: buffalo build -v
 
-    - name: Download all workflow run artifacts
-      uses: actions/download-artifact@v2
+    - name: search threw directories
+      run: ls -r
