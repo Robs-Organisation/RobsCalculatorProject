@@ -28,7 +28,7 @@ jobs:
       run: buffalo build -v
 
     - name: search threw directories
-      run: ls 
+      run: ls -trl
 
     - name: directorie bin
-      run: cd bin; ls
+      run: cd bin; ls -trl
