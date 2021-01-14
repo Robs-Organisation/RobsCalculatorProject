@@ -24,5 +24,8 @@ jobs:
     - name: get npm
       run: npm install
       
+    - name: install copr-cli
+      run: dnf install copr-cli
+      
     - name: build with buffalo
       run: buffalo build
