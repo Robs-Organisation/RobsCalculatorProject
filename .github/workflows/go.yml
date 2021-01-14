@@ -21,8 +21,8 @@ jobs:
     - name: get Buffalo Framwork
       run: go get -u github.com/gobuffalo/buffalo/buffalo
       
-    - name: npm problem
-      run: rm -rf node_modules && rm ./package-lock.json && npm install
+    - name: get npm
+      run: npm install
       
-    - name: check for buffalo
+    - name: build with buffalo
       run: buffalo build -v
