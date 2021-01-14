@@ -25,10 +25,4 @@ jobs:
       run: npm install
       
     - name: build with buffalo
-      run: buffalo build -v
-
-    - name: search threw directories
-      run: ls -trl
-
-    - name: directorie bin
-      run: cd bin; ls -trl
+      run: buffalo test
