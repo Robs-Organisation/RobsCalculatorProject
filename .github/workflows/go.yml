@@ -32,13 +32,7 @@ jobs:
       
       - name: check for python version
         run: python --version
-        
-      - name: install new python version
-        run: apt-get install python3.8
-        
-      - name: check for python version
-        run: python --version
-      
+              
       - name: install copr-cli
         run: pip install copr-cli
       
