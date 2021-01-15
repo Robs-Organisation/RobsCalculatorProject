@@ -24,12 +24,12 @@ jobs:
       
 #      - name: get npm
 #        run: npm install
-      
-      - name: Upgrade to Python 3
-        # You may pin to the exact commit or the version.
-        # uses: cclauss/Upgrade-to-Python3@3c75b55b2d6965770da865993f85010ed4e1500a
-        uses: cclauss/Upgrade-to-Python3@0.1.0
-      
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7' 
+          architecture: 'x64'
+                     
       - name: check for python version
         run: python --version
               
