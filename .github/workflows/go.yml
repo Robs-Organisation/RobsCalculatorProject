@@ -41,3 +41,6 @@ jobs:
       
       - name: read the document
         run: cat ~/.config/copr
+
+      - name: test if copr works 
+        run: copr-cli
