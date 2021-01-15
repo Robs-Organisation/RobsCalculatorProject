@@ -12,24 +12,24 @@ jobs:
     name: Step 1
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.15
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
      
-    - name: get Buffalo Framwork
-      run: go get -u github.com/gobuffalo/buffalo/buffalo
+      - name: get Buffalo Framwork
+        run: go get -u github.com/gobuffalo/buffalo/buffalo
       
-    - name: get npm
-      run: npm install
+      - name: get npm
+        run: npm install
       
-    - name: install copr-cli
-      run: pip install copr-cli
+      - name: install copr-cli
+        run: pip install copr-cli
       
-    - name: build with buffalo
-      run: buffalo build
+      - name: build with buffalo
+        run: buffalo build
   
   test:
     name: Step 2
