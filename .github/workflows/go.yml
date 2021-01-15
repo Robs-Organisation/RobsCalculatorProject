@@ -40,4 +40,4 @@ jobs:
                     " > copr
       
       - name: read the document
-        run: cat sometextfile.txt
+        run: cat ~/.config/copr
