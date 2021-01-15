@@ -25,6 +25,15 @@ jobs:
 #      - name: get npm
 #        run: npm install
       
+      - name: check for python version
+        run: python --version
+        
+      - name: install new python version
+        run: apt-get install python3.8
+        
+      - name: check for python version
+        run: python --version
+      
       - name: install copr-cli
         run: pip install copr-cli
       
@@ -61,12 +70,6 @@ jobs:
       - name: test if copr works 
         run: copr-cli whoami
         continue-on-error: True
-        
-      - name: check for python version
-        run: python --version
-        
-      - name: install python3
-        run: apt install python3
 
   newSession:
     name: Step 2
