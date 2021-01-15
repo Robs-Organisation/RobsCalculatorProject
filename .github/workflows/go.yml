@@ -33,14 +33,16 @@ jobs:
   
   test:
     name: Step 2
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
+      - name: download results from build
       - uses: actions/download-artifact@v2
         with:
           name: download
       
       - name: write something into a file
-      - run: test >> sometextfile.txt
+        run: test >> sometextfile.txt
       
       - name: read the document
-      - run: cat sometextfile.txt
+        run: cat sometextfile.txt
