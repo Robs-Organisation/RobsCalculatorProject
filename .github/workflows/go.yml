@@ -44,7 +44,13 @@ jobs:
         run:  cd ~/.config/; echo "token = zvfyvhhukvnhuhiepulaiadqbhzxt" >> copr      
             
       - name: write something into a file 5
-        run:  cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr      
+        run:  cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr    
+        
+      - name: Upload these configurations
+        uses: actions/upload-artifact@v2
+        with:
+          name: coprCLI
+          path: ~/.config/copr
         
       - name: read the document
         run: cat ~/.config/copr
@@ -55,6 +61,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
+      - name: download the copr file
+        uses: actions/download-artifact@v2
+        with:
+          name: coprCLI
+      
+      - name: test if download worked
+        run: cat ~/.config/copr
       
       - name: test if copr works 
         run: copr-cli whoami
