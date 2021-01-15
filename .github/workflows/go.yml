@@ -54,6 +54,17 @@ jobs:
         
       - name: read the document
         run: cat ~/.config/copr
+        
+      - name : restart shell
+        run: source /etc/profile
+        
+      - name: test if copr works 
+        run: copr-cli whoami
+        continue-on-error: True
+        
+      - name: check for python version
+        run: python --version
+        
 
   newSession:
     name: Step 2
