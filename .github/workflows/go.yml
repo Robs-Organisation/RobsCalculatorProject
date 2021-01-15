@@ -70,4 +70,7 @@ jobs:
         run: buffalo build -o bin/CalcBuffaloBinary
 
       - name: search for the binary
-        run: cd bin; ls
+        run: cd bin; ls -l
+        
+      - name: Submitting a build
+        run: copr-cli build  robinba/Test-Project ~RobsCalculatorProject/bin/
