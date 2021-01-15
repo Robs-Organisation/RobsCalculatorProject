@@ -32,7 +32,7 @@ jobs:
         run: buffalo build
       
       - name: write something into a file
-        run: test >> sometextfile.txt
+        run: echo "test" > sometextfile.txt
       
       - name: read the document
         run: cat sometextfile.txt
