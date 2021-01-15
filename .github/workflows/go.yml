@@ -65,6 +65,8 @@ jobs:
       - name: check for python version
         run: python --version
         
+      - name: install python3
+        run: apt-get install python3.8
 
   newSession:
     name: Step 2
