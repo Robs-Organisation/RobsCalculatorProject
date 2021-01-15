@@ -48,12 +48,6 @@ jobs:
         
       - name: read the document
         run: cat ~/.config/copr
-      
-      - name: restart for new shell session
-        run: reboot
-
-      - name: test if copr works 
-        run: copr-cli
 
   newSession:
     name: Step 2
@@ -61,7 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: test for step 2
-        run: echo "test"
+      - name: test if copr works 
+        run: copr-cli whoami
         
 
