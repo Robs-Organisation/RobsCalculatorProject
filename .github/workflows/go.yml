@@ -68,7 +68,7 @@ jobs:
           name: coprCLI
       
       - name: test if download worked
-        run: cat ~/.config/copr
+        run: cat copr
       
       - name: test if copr works 
         run: copr-cli whoami
