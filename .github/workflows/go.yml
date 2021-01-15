@@ -63,9 +63,6 @@ jobs:
       - name : restart shell
         run: source /etc/profile
         
-      - name: test if copr works 
-        run: copr-cli whoami
-        
       - name: build with buffalo
         run: buffalo build -o rpm//CalcBuffaloBinary
 
