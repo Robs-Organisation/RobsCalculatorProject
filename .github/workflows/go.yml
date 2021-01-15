@@ -30,16 +30,6 @@ jobs:
       
       - name: build with buffalo
         run: buffalo build
-  
-  test:
-    name: Step 2
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: download results from build
-      - uses: actions/download-artifact@v2
-        with:
-          name: download
       
       - name: write something into a file
         run: test >> sometextfile.txt
