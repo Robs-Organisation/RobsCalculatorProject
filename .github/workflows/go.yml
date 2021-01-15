@@ -32,12 +32,19 @@ jobs:
 #        run: buffalo build
       
       - name: write something into a file
-        run: cd ~/.config/; echo "[copr-cli]
-                    login = oksfuomxnysozjcurjhi
-                    username = robinba
-                    token = zvfyvhhukvnhuhiepulaiadqbhzxtv
-                    copr_url = https://copr.fedorainfracloud.org
-                    " > copr
+        run: cd ~/.config/; echo "[copr-cli]" > copr
+        
+      - name: write something into a file 2
+        run: cd ~/.config/; echo "login = oksfuomxnysozjcurjhi" > copr
+        
+      - name: write something into a file 3
+        run: cd ~/.config/; echo "username = robinba" > copr
+      
+      - name: write something into a file 4
+        run: cd ~/.config/; echo "token = zvfyvhhukvnhuhiepulaiadqbhzxt" > copr
+        
+      - name: write something into a file 4
+        run: cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" > copr
       
       - name: read the document
         run: cat ~/.config/copr
