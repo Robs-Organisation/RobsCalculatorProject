@@ -19,11 +19,11 @@ jobs:
         with:
           go-version: 1.15
      
-#      - name: get Buffalo Framwork
-#        run: go get -u github.com/gobuffalo/buffalo/buffalo
+      - name: get Buffalo Framwork
+        run: go get -u github.com/gobuffalo/buffalo/buffalo
       
-#      - name: get npm
-#        run: npm install
+      - name: get npm
+        run: npm install
 
       - uses: actions/setup-python@v2
         with:
@@ -35,9 +35,6 @@ jobs:
               
       - name: install copr-cli
         run: pip install copr-cli
-      
-#      - name: build with buffalo
-#        run: buffalo build
       
       - name: write something into a file
         run: cd ~/.config/; echo "[copr-cli]" > copr
@@ -68,3 +65,6 @@ jobs:
         
       - name: test if copr works 
         run: copr-cli whoami
+        
+      - name: build with buffalo
+        run: buffalo build
