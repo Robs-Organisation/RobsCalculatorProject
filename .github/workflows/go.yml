@@ -67,10 +67,10 @@ jobs:
         run: copr-cli whoami
         
       - name: build with buffalo
-        run: buffalo build -o bin/CalcBuffaloBinary
+        run: buffalo build -o rpm//CalcBuffaloBinary
 
       - name: search for the binary
-        run: cd bin; ls -l
+        run: cd rpm; ls -l
         
       - name: Submitting a build
-        run: copr-cli build  robinba/Test-Project bin/CalcBuffaloBinary
+        run: copr-cli build  robinba/Test-Project rpm//CalcBuffaloBinary rpm/calculator.spec
