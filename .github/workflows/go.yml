@@ -25,7 +25,7 @@ jobs:
       run: npm install
       
     - name: install copr-cli
-      run: yum install copr-cli
+      run: pip install copr-cli
       
     - name: build with buffalo
       run: buffalo build
