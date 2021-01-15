@@ -12,7 +12,7 @@ jobs:
     name: Step 1
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/upload-artifact@v2
 
     - name: Set up Go
       uses: actions/setup-go@v2
@@ -35,7 +35,9 @@ jobs:
     name: Step 2
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: download
       
       - name: write something into a file
       - run: test >> sometextfile.txt
