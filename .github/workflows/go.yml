@@ -9,6 +9,7 @@ on:
 jobs:
 
   build:
+    name: Step 1
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -31,6 +32,7 @@ jobs:
       run: buffalo build
   
   test:
+    name: Step 2
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
