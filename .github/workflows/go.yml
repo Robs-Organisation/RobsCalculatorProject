@@ -29,3 +29,14 @@ jobs:
       
     - name: build with buffalo
       run: buffalo build
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: write something into a file
+      - run: test >> sometextfile.txt
+      
+      - name: read the document
+      - run: cat sometextfile.txt
