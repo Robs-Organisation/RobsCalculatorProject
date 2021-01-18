@@ -20,7 +20,7 @@ jobs:
           go-version: 1.15
      
       - name: get Buffalo Framwork
-        run: cd rpmbuild; go get -u github.com/gobuffalo/buffalo/buffalo
+        run: cd rpmbuild/sources; go get -u github.com/gobuffalo/buffalo/buffalo
       
       - name: get npm
         run: npm install
