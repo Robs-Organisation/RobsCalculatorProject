@@ -28,7 +28,7 @@ jobs:
           architecture: 'x64'
       
       - name: get npm
-        run: npm install
+        run: apt install npm 
               
       - name: install copr-cli
         run: pip install copr-cli
