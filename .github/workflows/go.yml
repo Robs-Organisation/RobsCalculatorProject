@@ -22,13 +22,13 @@ jobs:
       - name: get Buffalo Framwork
         run: cd rpmbuild/sources; go get -u github.com/gobuffalo/buffalo/buffalo
       
-      - name: get npm
-        run: npm install
-
       - uses: actions/setup-python@v2
         with:
           python-version: '3.7' 
           architecture: 'x64'
+      
+      - name: get npm
+        run: npm install
                      
       - name: check for python version
         run: python --version
