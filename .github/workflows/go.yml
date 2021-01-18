@@ -64,7 +64,7 @@ jobs:
         run: copr-cli whoami
         
       - name: build with buffalo
-        run: buffalo build -o rpm//CalcBuffaloBinary
+        run: buffalo build -o CalcBuffaloBinary
 
       - name: search for the binary
         run: cd rpm; ls -l
