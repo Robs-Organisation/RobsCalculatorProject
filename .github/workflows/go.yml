@@ -48,12 +48,6 @@ jobs:
       - name: write something into a file 5
         run:  cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr    
         
-      - name : restart shell
-        run: source /etc/profile
-        
-      - name: test if copr works 
-        run: copr-cli whoami
-        
       - name: build with buffalo
         run: cd rpmbuild/sources/; buffalo build -o CalcBuffaloBinary
 
@@ -70,6 +64,9 @@ jobs:
         with:
           name: Binary RPM
           path: ${{ steps.rpm.outputs.rpm_dir_path }}
+
+      - name : restart shell
+        run: source /etc/profile
 
       - name: Submitting a build
         run: copr-cli build  robinba/Test-Project rpm//CalcBuffaloBinary
