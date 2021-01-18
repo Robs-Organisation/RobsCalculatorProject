@@ -50,6 +50,7 @@ jobs:
         
       - name: build with buffalo
         run: cd rpmbuild/sources/; buffalo build -v -o binary/CalcBuffaloBinary
+        continue-on-error: true
 
       - name: build RPM
         uses: naveenrajm7/rpmbuild@master
