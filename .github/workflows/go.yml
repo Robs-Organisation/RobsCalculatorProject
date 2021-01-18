@@ -35,22 +35,22 @@ jobs:
               
       - name: install copr-cli
         run: pip install copr-cli
-      
+
       - name: write something into a file
         run: cd ~/.config/; echo "[copr-cli]" > copr
-      
+
       - name: write something into a file 2
-        run:  cd ~/.config/; echo "login = xvpxvfujvoymahdmafbc" >> copr
-      
+        run:  cd ~/.config/; echo "login = ${{ secrets.COPR_LOGIN }}" >> copr
+
       - name: write something into a file 3
-        run:  cd ~/.config/; echo "username = robinba" >> copr
-      
+        run:  cd ~/.config/; echo "username = ${{ secrets.COPR_USERNAME }}" >> copr
+
       - name: write something into a file 4
-        run:  cd ~/.config/; echo "token = ccgegxaimyhpxcvjrklefonexaczkw" >> copr      
-            
+        run:  cd ~/.config/; echo "token = ${{ secrets.COPR_TOKEN }}" >> copr
+
       - name: write something into a file 5
-        run:  cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr    
-        
+        run:  cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr
+
       - name: Upload these configurations
         uses: actions/upload-artifact@v2
         with:
