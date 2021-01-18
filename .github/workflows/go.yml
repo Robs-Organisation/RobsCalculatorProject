@@ -57,9 +57,6 @@ jobs:
           name: coprCLI
           path: ~/.config/copr
         
-      - name: read the document
-        run: cat ~/.config/copr
-        
       - name : restart shell
         run: source /etc/profile
         
@@ -71,6 +68,17 @@ jobs:
 
       - name: search for the binary
         run: cd rpm; ls -l
-        
+
+      - name: build RPM
+        uses: naveenrajm7/rpmbuild@master
+        with:
+          spec_file: "calculator.spec"
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: Binary RPM
+          path: ${{ steps.rpm.outputs.rpm_dir_path }}
+
       - name: Submitting a build
         run: copr-cli build  robinba/Test-Project rpm//CalcBuffaloBinary
