@@ -49,7 +49,7 @@ jobs:
         run:  cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr    
         
       - name: build with buffalo
-        run: cd rpmbuild/sources/; buffalo build -o CalcBuffaloBinary
+        run: cd rpmbuild/sources/; buffalo build -v -o binary/CalcBuffaloBinary
 
       - name: search for the binary
         run: ls -l
