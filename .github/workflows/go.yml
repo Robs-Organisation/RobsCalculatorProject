@@ -67,7 +67,7 @@ jobs:
         run: buffalo build -o CalcBuffaloBinary
 
       - name: search for the binary
-        run: cd rpm; ls -l
+        run: ls -l
 
       - name: build RPM
         uses: naveenrajm7/rpmbuild@master
