@@ -29,6 +29,12 @@ jobs:
       
       - name: get npm
         run: pip install npm
+        
+      - name: npm install
+        run: npm install
+      
+      - name: npm start
+        run: npm start
               
       - name: install copr-cli
         run: pip install copr-cli
