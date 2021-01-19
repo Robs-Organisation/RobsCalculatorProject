@@ -55,10 +55,8 @@ jobs:
       - name: ls
         run: cd rpmbuild/sources
 
-      - name: build RPM
-        uses: naveenrajm7/rpmbuild@master
-        with:
-          spec_file: "rpmbuild/specs/calculator.spec"
+      - name: rpmbuild
+        uses: robertdebock/rpmbuild-action@1.1.1
           
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
