@@ -55,7 +55,10 @@ jobs:
         run: buffalo build -v -o rpm/CalcBuffaloBinary
         
       - name: check if a binary is build 
-        run: ls; cd rpm; ls
+        run: ls
+        
+      - name: check again
+        run: cd rpm; ls
 
       - name: build RPM package
         id: rpm
