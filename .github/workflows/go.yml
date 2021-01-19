@@ -50,7 +50,6 @@ jobs:
         
       - name: build with buffalo
         run: buffalo build -v -o binary/CalcBuffaloBinary
-        continue-on-error: true
         
       - name: check if a binary is build 
         run: ls
