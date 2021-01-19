@@ -36,7 +36,7 @@ jobs:
       - name: install copr-cli
         run: pip install copr-cli
 
-      - name: write something into a file
+      - name: safe Copr API token to the system
         run: |
           cd ~/.config/; echo "[copr-cli]" > copr
           cd ~/.config/; echo "login = ${{ secrets.COPR_LOGIN }}" >> copr
@@ -46,24 +46,15 @@ jobs:
         
       - name: build with buffalo
         run: buffalo build -v -o CalcBuffaloBinary
-        
-      - name: check if a binary is build 
-        run: ls
 
       - name: build RPM package
         id: rpm
         uses: naveenrajm7/rpmbuild@master
         with:
           spec_file: "calculator.spec"
-          
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1.0.0
-        with:
-          name: Binary RPM
-          path: ${{ steps.rpm.outputs.rpm_dir_path }}
 
       - name: restart shell
         run: source /etc/profile
 
       - name: Submitting a build
-        run: copr-cli build  robinba/Test-Project rpm//CalcBuffaloBinary
+        run: copr-cli build  robinba/Test-Project ''Hier sollte ein RPM-Packet stehen''
