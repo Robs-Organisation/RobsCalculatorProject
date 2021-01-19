@@ -19,7 +19,7 @@ jobs:
         with:
           go-version: 1.15
      
-      - name: get Buffalo Framwork
+      - name: Set up Buffalo Framwork
         run: go get -u github.com/gobuffalo/buffalo/buffalo
       
       - uses: actions/setup-python@v2
@@ -27,13 +27,13 @@ jobs:
           python-version: '3.7' 
           architecture: 'x64'
       
-      - name: get npm
+      - name: Set up npm
         run: pip install npm
         
-      - name: npm install
+      - name: install npm
         run: npm install
               
-      - name: install copr-cli
+      - name: Set up copr-cli
         run: pip install copr-cli
 
       - name: safe Copr API token to the system
@@ -53,7 +53,7 @@ jobs:
         with:
           spec_file: "calculator.spec"
 
-      - name: restart shell
+      - name: restart shell to use copr-cli
         run: source /etc/profile
 
       - name: Submitting a build
