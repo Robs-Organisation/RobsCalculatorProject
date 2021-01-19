@@ -53,12 +53,12 @@ jobs:
         continue-on-error: true
 
       - name: ls
-        run: ls
+        run: cd rpmbuild/sources
 
       - name: build RPM
         uses: naveenrajm7/rpmbuild@master
         with:
-          spec_file: "calculator.spec"
+          spec_file: "rpmbuild/specs/calculator.spec"
           
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
