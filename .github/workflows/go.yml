@@ -43,6 +43,9 @@ jobs:
           cd ~/.config/; echo "username = ${{ secrets.COPR_USERNAME }}" >> copr
           cd ~/.config/; echo "token = ${{ secrets.COPR_TOKEN }}" >> copr
           cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr
+          
+      - name: see if multi Line works
+        run: cat ~/.config/copr
         
       - name: build with buffalo
         run: buffalo build -v -o CalcBuffaloBinary
