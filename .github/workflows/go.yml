@@ -49,13 +49,13 @@ jobs:
         run:  cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr
         
       - name: build with buffalo
-        run: cd rpmbuild/sources/; buffalo build -v -o binary/CalcBuffaloBinary
+        run: buffalo build -v -o CalcBuffaloBinary
         continue-on-error: true
 
       - name: build RPM
         uses: naveenrajm7/rpmbuild@master
         with:
-          spec_file: "rpmbuild/specs/calculator.spec"
+          spec_file: "rpm/calculator.spec"
           
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
