@@ -15,6 +15,14 @@ This is a description
 %prep
 %setup -c
 
+%build
+
+%install
+
+mkdir -p %{buildroot}/%{_bindir}
+
+install -m 0755 %{name} %{buildroot}/%{_bindir}/%{name}
+
 %files
 %license LICENSE
 %{_bindir}/%{name}/
