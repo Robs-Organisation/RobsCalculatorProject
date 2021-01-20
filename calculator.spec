@@ -15,19 +15,6 @@ This is a description
 %prep
 %setup -c
 
-%post
-sed -i "s/SESSION_SECRET=""/\SESSION_SECRET="$(openssl rand -hex 30)"/" %{_sysconfdir}/%{name}/override.conf
-
 %files
 %license LICENSE
 %{_bindir}/%{name}/
-
-%config(noreplace)
-%{_sysconfdir}/%{name}/*
-
-%clean
-rm -rf $%{_builddir}
-rm -rf %{buildroot}/%{_bindir}/%{name}
-rm -rf %{buildroot}/%{_sysconfdir}/%{name}
-rm -rf %{buildroot}/lib/systemd/system/
-rm -rf $%{buildroot}/%{_datadir}/%{name}/
