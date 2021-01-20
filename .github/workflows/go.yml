@@ -33,6 +33,9 @@ jobs:
       - name: install npm
         run: npm install
               
+      - name: install rpmbuild
+        run: pip install rpmbuild-chain              
+            
       - name: Set up copr-cli
         run: pip install copr-cli
 
@@ -52,12 +55,6 @@ jobs:
 
       - name: check if there are directories
         run: ls /usr/bin/cp
-
-      - name: build RPM package
-        id: rpm
-        uses: naveenrajm7/rpmbuild@master
-        with:
-          spec_file: "calculator.spec"
 
       - name: restart shell to use copr-cli
         run: source /etc/profile
