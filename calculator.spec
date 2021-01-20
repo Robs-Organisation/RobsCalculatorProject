@@ -1,10 +1,10 @@
-Name:           robscalc
+Name:           RobsCalculatorProject
 Version:        1.0
 Release:        1%{?dist}
 Summary:        a calculator to learn something about gobuffalo
 
 License:        All rights reserved
-URL:            https://github.com/Robs-Organisation/RobsTestRepo
+URL:            https://github.com/Robs-Organisation/RobsCalculatorProject/%{name}
 Source0:        %{name}-%{version}.tar.gz
 
 Requires:       postgresql
