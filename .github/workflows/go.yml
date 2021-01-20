@@ -47,6 +47,12 @@ jobs:
       - name: build with buffalo
         run: buffalo build -v -o CalcBuffaloBinary
 
+      - name: check if there are directories 
+        run: ls /usr/bin/rpmbuild
+
+      - name: check if there are directories
+        run: ls /usr/bin/cp
+
       - name: build RPM package
         id: rpm
         uses: naveenrajm7/rpmbuild@master
