@@ -13,24 +13,6 @@ Requires:       postgresql
 This is a description
 
 %prep
-mkdir -p %{buildroot}/%{_bindir}
-mkdir -p %{buildroot}/%{_sysconfdir}/%{name}
-mkdir -p %{buildroot}/lib/systemd/system
-mkdir -p %{buildroot}/%{_datadir}/%{name}/template
-
-cp /builds/RobsTest/Repo/calculator/rpm/assets/%{name}  %{buildroot}/%{_bindir}/%{name}
-cp /builds/RobsTest/Repo/calculator/rpm/assets/config %{buildroot}/%{_sysconfdir}/%{name}
-cp /builds/RobsTest/Repo/calculator/rpm/assets/override.conf %{buildroot}/%{_sysconfdir}/%{name}
-cp /builds/RobsTest/Repo/calculator/rpm/assets/config.env %{buildroot}/%{_sysconfdir}/%{name}
-cp /builds/RobsTest/Repo/calculator/rpm/assets/%{name}.service %{buildroot}/lib/systemd/system
-cp -r /builds/RobsTest/Repo/calculator/rpm/assets/template %{buildroot}/%{_datadir}/%{name}/
-
-cp /builds/Robs-Organisation/RobsCalculatorProject/calculator/rpm/assets/%{name}  %{buildroot}/%{_bindir}/%{name}
-cp /builds/Robs-Organisation/RobsCalculatorProject/calculator/rpm/assets/override.conf %{buildroot}/%{_sysconfdir}/%{name}
-cp /builds/Robs-Organisation/RobsCalculatorProject/calculator/rpm/assets/config.env %{buildroot}/%{_sysconfdir}/%{name}
-cp /builds/Robs-Organisation/RobsCalculatorProject/calculator/rpm/assets/%{name}.service %{buildroot}/lib/systemd/system
-cp -r /builds/Robs-Organisation/RobsCalculatorProject/calculator/rpm/assets/template %{buildroot}/%{_datadir}/%{name}/
-
 
 %setup -c
 
