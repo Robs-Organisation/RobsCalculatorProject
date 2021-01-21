@@ -1,4 +1,4 @@
-Name:           RobsCalculatorProject
+Name:           calculator
 Version:        1.0
 Release:        1%{?dist}
 Summary:        a calculator to learn something about gobuffalo
