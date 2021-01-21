@@ -53,8 +53,8 @@ jobs:
       - name: check if there are directories 
         run: ls /usr/bin/rpmbuild
 
-      - name: check if there are directories
-        run: ls /usr/bin/cp
+#      - name: check if there are directories
+#        run: ls /usr/bin/cp
 
       - name: restart shell to use copr-cli
         run: source /etc/profile
