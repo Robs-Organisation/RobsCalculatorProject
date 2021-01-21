@@ -63,6 +63,8 @@ jobs:
         with:
           # path to the spec file
           spec_file: calculator.spec
+        continue-on-error: true
+        
           
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
