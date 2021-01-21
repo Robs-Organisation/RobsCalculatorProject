@@ -19,6 +19,9 @@ jobs:
         with:
           go-version: 1.15
      
+      - name: install rpm things
+        run: yum install gcc rpm-build rpm-devel rpmlint make python bash coreutils diffutilspatch rpmdevtools
+     
       - name: Set up Buffalo Framwork
         run: go get -u github.com/gobuffalo/buffalo/buffalo
       
