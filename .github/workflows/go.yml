@@ -58,6 +58,8 @@ jobs:
 
       - name: Build an RPM
         uses: robertdebock/rpmbuild-action@1.1.1
+        with:
+          distribution: centos-8
           
       - name: restart shell to use copr-cli
         run: source /etc/profile
