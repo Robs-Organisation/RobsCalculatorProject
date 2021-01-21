@@ -65,6 +65,8 @@ jobs:
           spec_file: calculator.spec
         continue-on-error: true
         
+      - name: what is new? 
+        run: ls
           
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
