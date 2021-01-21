@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-    name: Step 1
+    name: Build RPM and upload it to Copr Fedora
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -34,7 +34,10 @@ jobs:
         run: npm install
               
       - name: install rpmbuild
-        run: pip install rpmbuild-chain              
+        run: pip install rpm           
+            
+      - name: try rpm
+        run: rpm
             
       - name: Set up copr-cli
         run: pip install copr-cli
