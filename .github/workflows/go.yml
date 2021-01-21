@@ -33,11 +33,8 @@ jobs:
       - name: install npm
         run: npm install
               
-      - name: install rpmbuild
+      - name: install rpm
         run: pip install rpm           
-            
-      - name: try rpm
-        run: rpm
             
       - name: Set up copr-cli
         run: pip install copr-cli
