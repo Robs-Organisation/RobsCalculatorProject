@@ -63,7 +63,6 @@ jobs:
         with:
           # path to the spec file
           spec_file: calculator.spec
-        continue-on-error: true
         
       - name: what is new? 
         run: ls
