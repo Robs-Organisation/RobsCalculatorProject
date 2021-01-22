@@ -41,7 +41,7 @@ jobs:
         run: mv calculator.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
 
       - name: check if move was successful
-        run: ls /rpmbuild/tarball/
+        run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
 
   build_RPM:
     name: Builds RPM and upload it to Copr Fedora
