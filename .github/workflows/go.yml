@@ -13,13 +13,28 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: see whats build
-        run: ls; pwd
-      
       - name: build .tar.gz
-        run: tar -czvf archive.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/
+        run: tar -czvf calculator.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/
         
-      - name: see whats build
+      - name: Upload calculator.tar.gz 
+        uses: actions/upload-artifact@v2
+        with:
+          name: calTarball
+          path: calculator.tar.gz
+          
+  temp_job:
+    name: build RPM
+    needs: build_tarball
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Download calculator.tar.gz
+        uses: actions/download-artifact@v2
+        with:
+          name: calTarball
+      
+      - name: see if dowload is succesfull
         run: ls
 
   build_RPM:
