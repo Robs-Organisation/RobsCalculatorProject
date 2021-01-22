@@ -14,11 +14,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: switch to the right directory
-        run: cd rpmbuild/sourceCode 
-      
-      - name: check if tar is installed
-        run: tar
-        
+        run: cd rpmbuild/sourceCode; tar -z        
         
       - name: see whats build
         run: ls
