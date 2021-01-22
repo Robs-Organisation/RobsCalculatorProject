@@ -7,9 +7,25 @@ on:
     branches: [ master ]
 
 jobs:
+  build_tarball:
+    name: Builds .tar file
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: switch to the right directory
+        run: cd rpmbuild/sourceCode 
+      
+      - name: Archive using zip or tar
+        # You may pin to the exact commit or the version.
+        # uses: NSCoder/archive-action@10750a36d4f79d825a156afa7efd3ae78d0b6eb7
+        uses: NSCoder/archive-action@v1.0.0
+        
+      - name: see whats build
+        run: ls
 
-  build:
-    name: Build RPM and upload it to Copr Fedora
+  build_RPM:
+    name: Builds RPM and upload it to Copr Fedora
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
