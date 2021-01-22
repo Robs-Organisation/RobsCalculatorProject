@@ -43,6 +43,9 @@ jobs:
       - name: check if move was successful
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
       
+      - name: install rpm
+        run: apt-get install rpm
+      
       - name: check if rpm is installed
         run: rpm -ql rpmdevtools | grep bin
       
