@@ -17,7 +17,7 @@ jobs:
         run: ls; pwd
       
       - name: build .tar.gz
-        run: tar -cf archive.tar /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/
+        run: tar -czvf archive.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/
         
       - name: see whats build
         run: ls
