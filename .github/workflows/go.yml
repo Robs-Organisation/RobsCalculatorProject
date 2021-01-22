@@ -47,8 +47,8 @@ jobs:
           cd ~/.config/; echo "token = ${{ secrets.COPR_TOKEN }}" >> copr
           cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr
         
-      - name: build with buffalo
-        run: buffalo build -v -o CalcBuffaloBinary
+#      - name: build with buffalo
+#        run: buffalo build -v -o CalcBuffaloBinary
 
       - name: check if there are directories 
         run: ls /usr/bin/rpmbuild
