@@ -36,6 +36,12 @@ jobs:
       
       - name: see if dowload is succesfull
         run: ls
+        
+      - name: move file to /rpmbuild/tarball/
+        run: mv calculator.tar.gz /rpmbuild/tarball/
+
+      - name: check if move was successful
+        run: ls /rpmbuild/tarball/
 
   build_RPM:
     name: Builds RPM and upload it to Copr Fedora
