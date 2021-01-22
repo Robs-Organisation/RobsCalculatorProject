@@ -35,7 +35,7 @@ jobs:
           name: calTarball
       
       - name: see if dowload is succesfull
-        run: ls
+        run: ls; pwd
         
       - name: move file to /rpmbuild/tarball/
         run: mv calculator.tar.gz /rpmbuild/tarball/
