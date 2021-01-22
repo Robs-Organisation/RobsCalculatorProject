@@ -38,7 +38,7 @@ jobs:
         run: ls; pwd
         
       - name: move file to /rpmbuild/tarball/
-        run: mv calculator.tar.gz /rpmbuild/tarball/
+        run: mv calculator.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
 
       - name: check if move was successful
         run: ls /rpmbuild/tarball/
