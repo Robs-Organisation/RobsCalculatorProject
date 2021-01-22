@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: switch to the right directory
-        run: cd rpmbuild/sourceCode; tar -z        
+      - name: build .tar.gz
+        run: tar -czf calculator.tar.gz -C /rpmbuild/sourceCode/
         
       - name: see whats build
         run: ls
