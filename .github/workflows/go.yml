@@ -17,7 +17,7 @@ jobs:
         run: ls; pwd
       
       - name: build .tar.gz
-        run: tar -czvf archive.tar.gz /home/runner/rpmbuild/sourceCode
+        run: tar --help
         
       - name: see whats build
         run: ls
