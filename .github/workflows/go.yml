@@ -53,7 +53,7 @@ jobs:
         uses: naveenrajm7/rpmbuild@v1.0.0
         with:
           # path to the spec file
-          spec_file: ~/rpmbuild/specFile/calculator.spec
+          spec_file: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/calculator.spec
 
         
   build_RPM:
