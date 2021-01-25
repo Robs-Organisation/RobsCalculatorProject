@@ -16,12 +16,10 @@ This is a description
 %setup -q
 
 %build
+make
 
 %install
-
-mkdir -p %{buildroot}/%{_bindir}
-
-install -m 755 %{name} %{buildroot}/%{_bindir}/%{name}
+make install
 
 %files
 %license LICENSE
