@@ -22,5 +22,4 @@ make
 make install
 
 %files
-%license LICENSE
 %{_bindir}/%{name}/
