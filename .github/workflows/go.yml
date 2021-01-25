@@ -55,6 +55,9 @@ jobs:
           # path to the spec file
           spec_file: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/calculator.spec
         continue-on-error: true
+        
+      - name: check for new builds
+        run: ls
 
         
   build_RPM:
