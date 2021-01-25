@@ -35,7 +35,7 @@ jobs:
           name: calTarball
   
       - name: move file to /rpmbuild/tarball/
-        run: mv calculator.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
+        run: mv ccalculator-1.0.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
 
       - name: check if move was successful
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
