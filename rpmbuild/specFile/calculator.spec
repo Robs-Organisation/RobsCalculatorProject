@@ -5,7 +5,7 @@ Summary:        a calculator to learn something about gobuffalo
 
 License:        All rights reserved
 URL:            https://github.com/Robs-Organisation/RobsCalculatorProject
-Source0:        %{name}-%{version}.tar.gz
+Source0:        /rpmbuild/tarball/%{name}-%{version}.tar.gz
 
 Requires:       postgresql
 
