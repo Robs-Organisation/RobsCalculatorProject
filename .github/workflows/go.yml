@@ -54,79 +54,8 @@ jobs:
         with:
           # path to the spec file
           spec_file: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/calculator.spec
-        continue-on-error: true
         
       - name: check for new builds
         run: ls
 
         
-  build_RPM:
-    name: Builds RPM and upload it to Copr Fedora
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.15
-     
-      - name: Set up Buffalo Framwork
-        run: go get -u github.com/gobuffalo/buffalo/buffalo
-      
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.7' 
-          architecture: 'x64'
-      
-      - name: Set up npm
-        run: pip install npm
-        
-      - name: install npm
-        run: npm install
-              
-      - name: install rpm
-        run: pip install rpm           
-            
-      - name: Set up copr-cli
-        run: pip install copr-cli
-
-      - name: safe Copr API token to the system
-        run: |
-          cd ~/.config/; echo "[copr-cli]" > copr
-          cd ~/.config/; echo "login = ${{ secrets.COPR_LOGIN }}" >> copr
-          cd ~/.config/; echo "username = ${{ secrets.COPR_USERNAME }}" >> copr
-          cd ~/.config/; echo "token = ${{ secrets.COPR_TOKEN }}" >> copr
-          cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr
-        
-#      - name: build with buffalo
-#        run: buffalo build -v -o CalcBuffaloBinary
-
-      - name: check if there are directories 
-        run: ls /usr/bin/rpmbuild
-
-#      - name: check if there are directories
-#        run: ls /usr/bin/cp
-
-      - name: RPM Build
-        # You may pin to the exact commit or the version.
-        # uses: naveenrajm7/rpmbuild@b52f0e593effaa08f4726afa0d0e2960131685c7
-        uses: naveenrajm7/rpmbuild@v1.0.0
-        with:
-          # path to the spec file
-          spec_file: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/calculator.spec
-        
-      - name: what is new? 
-        run: ls
-          
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1.0.0
-        with:
-          name: Binary RPM
-          path: ${{ steps.rpm.outputs.rpm_dir_path }}
-                    
-      - name: restart shell to use copr-cli
-        run: source /etc/profile
-
-      - name: Submitting a build
-        run: copr-cli build  robinba/Test-Project ''Hier sollte ein RPM-Packet stehen''
