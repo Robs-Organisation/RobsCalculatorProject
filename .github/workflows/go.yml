@@ -43,6 +43,9 @@ jobs:
       - name: check for testfile
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/  
         
+      - name: check for path
+        run: pwd
+        
       - name: RPM Build
         # You may pin to the exact commit or the version.
         # uses: naveenrajm7/rpmbuild@b52f0e593effaa08f4726afa0d0e2960131685c7
