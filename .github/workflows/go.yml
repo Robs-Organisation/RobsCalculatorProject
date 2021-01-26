@@ -47,7 +47,7 @@ jobs:
         run: pwd
         
       - name: check path        
-        run: ls /github/workspace//github/workspace/rpmbuild/specFile/calculator.spec
+        run: ls /github/workspace//github/workspace/rpmbuild/specFile/
         continue-on-error: true
         
       - name: check path        
