@@ -39,15 +39,14 @@ jobs:
 
       - name: check if move was successful
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
+
+      - name: check for user 
+        run: pwd
       
-      - name: check if rpm works
-        run: rpm
-        continue-on-error: true
-      
-      - name: Set up the RPM tree
+      - name: create rpm tree
         run: |
-          rpm -ql rpmdevtools | grep bin
-          rpmdev-setuptree
+          cd home/user; mkdir rpmbuild
+          cd rpmbuild: mkdir BUILD RPMS SOURCES SPECS SRPMS
           
       - name: loganbickmore/rpmbuild
         # You may pin to the exact commit or the version.
