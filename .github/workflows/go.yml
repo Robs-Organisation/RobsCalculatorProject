@@ -13,6 +13,28 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
+     
+      - name: Set up Buffalo Framwork
+        run: go get -u github.com/gobuffalo/buffalo/buffalo
+      
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7' 
+          architecture: 'x64'
+      
+      - name: Set up npm
+        run: pip install npm
+        
+      - name: install npm
+        run: npm install  
+        
+      - name: build with buffalo
+        run: buffalo build -v -o CalcBuffaloBinary    
+      
       - name: build .tar.gz
         run: tar -czvf calculator-1.0.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/
         
