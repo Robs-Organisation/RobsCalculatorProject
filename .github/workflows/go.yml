@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
@@ -30,7 +30,7 @@ jobs:
         run: pip install npm
         
       - name: install npm
-        run: npm install  
+        run: npm install
         
       - name: build with buffalo
         run: buffalo build -v -o CalcBuffaloBinary    
