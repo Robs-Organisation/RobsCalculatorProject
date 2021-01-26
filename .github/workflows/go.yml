@@ -45,7 +45,7 @@ jobs:
       
       - name: create rpm tree
         run: |
-          cd /home/runner/; mkdir rpmbuild
+          cd /runner/; mkdir rpmbuild
           cd rpmbuild: mkdir BUILD RPMS SOURCES SPECS SRPMS
           
       - name: loganbickmore/rpmbuild
