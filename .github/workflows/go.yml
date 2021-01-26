@@ -49,7 +49,10 @@ jobs:
       - name: check path        
         run: ls /github/workspace//github/workspace/rpmbuild/specFile/
         continue-on-error: true
-        
+
+      - name: check for files in /home
+        run: cd home; ls
+
       - name: create a /github/home/rpmbuild/SPECS/ dir
         run: cd /github/home/rpmbuild/; mkdir SPECS
         
