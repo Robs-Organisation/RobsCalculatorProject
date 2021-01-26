@@ -46,6 +46,12 @@ jobs:
       - name: check for path
         run: pwd
         
+      - name: check path        
+        run: ls /github/workspace//github/workspace/rpmbuild/specFile/calculator.spec
+        
+      - name: check path        
+        run: ls /github/home/rpmbuild/SPECS/
+        
       - name: RPM Build
         # You may pin to the exact commit or the version.
         # uses: naveenrajm7/rpmbuild@b52f0e593effaa08f4726afa0d0e2960131685c7
@@ -54,8 +60,3 @@ jobs:
         with:
           # path to the spec file
           spec_file: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/calculator.spec
-        
-      - name: check for new builds
-        run: ls
-
-        
