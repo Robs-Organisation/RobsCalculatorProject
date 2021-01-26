@@ -44,9 +44,13 @@ jobs:
         run: cd /home/runner/; pwd
       
       - name: create rpm tree
-        run: |
-          cd /home/runner/; mkdir rpmbuild
-          cd rpmbuild: mkdir BUILD RPMS SOURCES SPECS SRPMS
+        run: | 
+          mkdir /home/runner rpmbuild
+          mkdir /home/runner/rpmbuild BUILD
+          mkdir /home/runner/rpmbuild RPMS
+          mkdir /home/runner/rpmbuild SOURCES
+          mkdir /home/runner/rpmbuild SPECS
+          mkdir /home/runner/rpmbuild SRPMS
           
       - name: loganbickmore/rpmbuild
         # You may pin to the exact commit or the version.
