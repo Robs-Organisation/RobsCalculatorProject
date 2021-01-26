@@ -53,7 +53,10 @@ jobs:
       - name: check path        
         run: ls /github/home/rpmbuild/SPECS/
         continue-on-error: true
-        
+      
+      - name: see if rpmdevtree was set up
+        run: cd /usr/bin/; ls -R 
+      
       - name: RPM Build
         # You may pin to the exact commit or the version.
         # uses: naveenrajm7/rpmbuild@b52f0e593effaa08f4726afa0d0e2960131685c7
