@@ -40,19 +40,22 @@ jobs:
       - name: check if move was successful
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
       
-      - name: create rpm tree and check
-        run: | 
-          cd /home/runner 
-          mkdir rpmbuild
-          cd rpmbuild
-          mkdir BUILD
-          mkdir RPMS
-          mkdir SOURCES
-          mkdir SPECS
-          mkdir SRPMS
-          pwd
-          ls
-          
+#      - name: create rpm tree and check
+#        run: | 
+#          cd /home/runner 
+#          mkdir rpmbuild
+#          cd rpmbuild
+#          mkdir BUILD
+#          mkdir RPMS
+#          mkdir SOURCES
+#          mkdir SPECS
+#          mkdir SRPMS
+#          pwd
+#          ls
+ 
+      - name: check out tree
+        run: ls /github/workspace/rpmbuild
+        continue-on-error: true
           
       - name: loganbickmore/rpmbuild
         # You may pin to the exact commit or the version.
@@ -65,5 +68,5 @@ jobs:
           src_archive: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/calculator-1.0.tar.gz
         continue-on-error: true  
           
-      - name: /usr/bin/rpmbuild afterwards?
-        run: cd /usr/bin; ls
+      - name: check out tree
+        run: ls /github/workspace/rpmbuild
