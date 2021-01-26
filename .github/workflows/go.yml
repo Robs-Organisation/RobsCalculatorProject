@@ -40,6 +40,10 @@ jobs:
       - name: check if move was successful
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
       
+      - name: check if rpm works
+        run: rpm
+        continue-on-error: true
+      
       - name: Set up the RPM tree
         run: |
           rpm -ql rpmdevtools | grep bin
