@@ -41,7 +41,7 @@ jobs:
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
 
       - name: check for user 
-        run: cd ..; pwd
+        run: cd ..;cd ..; pwd
       
       - name: create rpm tree
         run: |
