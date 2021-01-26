@@ -40,11 +40,12 @@ jobs:
       - name: check if move was successful
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
       
-      - name: RPM Build
+      - name: loganbickmore/rpmbuild
         # You may pin to the exact commit or the version.
-        # uses: naveenrajm7/rpmbuild@b52f0e593effaa08f4726afa0d0e2960131685c7
-        id: rpm
-        uses: naveenrajm7/rpmbuild@v1.0.0
+        # uses: loganbickmore/rpmbuild@897c4539291e2905dec831e5155a9ea2b8208be5
+        uses: loganbickmore/rpmbuild@v1.0.0
         with:
-          # path to the spec file
+          # path to spec file
           spec_file: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/calculator.spec
+          # path to source archive file
+          src_archive: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/calculator-1.0.tar.gz
