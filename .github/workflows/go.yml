@@ -52,4 +52,4 @@ jobs:
         continue-on-error: true  
           
       - name: /usr/bin/rpmbuild afterwards?
-        run: cd /usr/bin/rpmbuild
+        run: cd /usr/bin
