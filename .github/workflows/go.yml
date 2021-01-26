@@ -51,7 +51,7 @@ jobs:
         continue-on-error: true
 
       - name: check for files in /home
-        run: cd home; ls
+        run: cd ..;cd ..; cd..; ls
 
       - name: create a /github/home/rpmbuild/SPECS/ dir
         run: cd /github/home/rpmbuild/; mkdir SPECS
