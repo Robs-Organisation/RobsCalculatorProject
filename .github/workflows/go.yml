@@ -41,8 +41,10 @@ jobs:
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
       
       - name: Set up the RPM tree
-        run: rpmdev-setuptree
-      
+        run: |
+          rpm -ql rpmdevtools | grep bin
+          rpmdev-setuptree
+          
       - name: loganbickmore/rpmbuild
         # You may pin to the exact commit or the version.
         # uses: loganbickmore/rpmbuild@897c4539291e2905dec831e5155a9ea2b8208be5
