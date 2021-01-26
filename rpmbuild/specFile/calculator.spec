@@ -13,7 +13,7 @@ Requires:       postgresql
 This is a description
 
 %prep
-%setup -q
+%setup
 
 %build
 make
