@@ -62,7 +62,3 @@ jobs:
         with:
           # path to the spec file
           spec_file: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/calculator.spec
-        continue-on-error: true
-      
-      - name: see if rpmdevtree was set up
-        run: cd /usr/bin/; ls -R 
