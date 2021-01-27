@@ -42,7 +42,7 @@ jobs:
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/SOURCES/
         
       - name: check for .spec file
-        run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/SPECS/  
+        run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/
         
       - name: check for path
         run: pwd
