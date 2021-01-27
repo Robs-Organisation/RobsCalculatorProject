@@ -39,19 +39,9 @@ jobs:
 
       - name: check if move was successful
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
-      
-#      - name: create rpm tree and check
-#        run: | 
-#          cd /home/runner 
-#          mkdir rpmbuild
-#          cd rpmbuild
-#          mkdir BUILD
-#          mkdir RPMS
-#          mkdir SOURCES
-#          mkdir SPECS
-#          mkdir SRPMS
-#          pwd
-#          ls
+        
+      - name: check for directory
+        run: ls /usr/bin/rpmbuild
         
       - name: Build RPM Centos7
         # You may pin to the exact commit or the version.
