@@ -35,7 +35,7 @@ jobs:
           go-version: 1.15
      
       - name: Set up Buffalo Framwork
-        run: go get -u github.com/gobuffalo/buffalo/buffalo
+        run: go get github.com/gobuffalo/buffalo/buffalo
       
       - uses: actions/setup-python@v2
         with:
