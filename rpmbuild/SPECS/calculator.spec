@@ -19,8 +19,5 @@ This is a description
 ./configure
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/usr/local/bin
 
 %files
-%{_bindir}/%{name}/
