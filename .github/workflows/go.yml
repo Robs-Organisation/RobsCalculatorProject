@@ -35,13 +35,13 @@ jobs:
         with:
           name: calTarball
   
-      - name: move file to /rpmbuild/tarball/
+      - name: move file to /rpmbuild/SOURCES/
         run: mv calculator-1.0.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/SOURCES/
 
       - name: check if move was successful
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/SOURCES/
         
-      - name: check for testfile
+      - name: check for .spec file
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/SPECS/  
         
       - name: check for path
@@ -54,7 +54,7 @@ jobs:
         uses: naveenrajm7/rpmbuild@v1.0.0
         with:
           # path to the spec file
-          spec_file: rpmbuild/SPECS/calculator.spec
+          spec_file: calculator.spec
         
       - name: check for new builds
         run: ls
