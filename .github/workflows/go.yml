@@ -34,7 +34,7 @@ jobs:
           go-version: 1.15
 
       - name: get Buffalo Framwork
-        run: go get -u github.com/gobuffalo/buffalo/buffalo
+        run: cd /rpmbuild/sourceCode; go get -u github.com/gobuffalo/buffalo/buffalo
 
       - uses: actions/setup-python@v2
         with:
