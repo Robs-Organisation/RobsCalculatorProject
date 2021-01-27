@@ -16,7 +16,6 @@ This is a description
 %setup -q
 
 %build
-./configure
 
 %install
 
