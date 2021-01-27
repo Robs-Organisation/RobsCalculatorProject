@@ -1,3 +1,4 @@
+# Altes Workflow File 
 name: Go
 
 on:
@@ -11,7 +12,7 @@ jobs:
     name: Builds .tar file
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2  
+      - uses: actions/checkout@v2
       
       - name: build .tar.gz
         run: tar -czvf calculator-1.0.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/
@@ -40,18 +41,20 @@ jobs:
       - name: check if move was successful
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/tarball/
         
-      - name: check for directory
-        run: ls /usr/bin/rpmbuild
+      - name: check for testfile
+        run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/  
         
-      - name: Build RPM Centos7
+      - name: check for path
+        run: pwd
+        
+      - name: RPM Build
         # You may pin to the exact commit or the version.
-        # uses: Antikythera/build-rpm@b2938b8278e03cc678b6b7243dfe9b39d069711f
-        uses: Antikythera/build-rpm@v1.0.2
+        # uses: naveenrajm7/rpmbuild@b52f0e593effaa08f4726afa0d0e2960131685c7
+        id: rpm
+        uses: naveenrajm7/rpmbuild@v1.0.0
         with:
-          # list of files to be used as RPM sources, delimited by new lines
-          sources: |
-            rpmbuild/tarball/calculator-1.0.tar.gz
-          # path to your rpm spec file
-          spec_file: |
-            rpmbuild/specFile/calculator.spec
-
+          # path to the spec file
+          spec_file: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/specFile/calculator.spec
+        
+      - name: check for new builds
+        run: ls
