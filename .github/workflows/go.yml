@@ -22,8 +22,36 @@ jobs:
         with:
           name: calTarball
           path: calculator-1.0.tar.gz
-          
-  temp_job:
+  
+  build_with_Buffalo:
+    name: build with Buffalo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
+     
+      - name: Set up Buffalo Framwork
+        run: go get -u github.com/gobuffalo/buffalo/buffalo
+      
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7' 
+          architecture: 'x64'
+      
+      - name: Set up npm
+        run: pip install npm
+        
+      - name: install npm
+        run: npm install
+               
+      - name: build with buffalo
+        run: cd /rpmbuild/sourceCode/; buffalo build -v -o CalcBuffaloBinary
+  
+  build_rpm:
     name: build RPM
     needs: build_tarball
     runs-on: ubuntu-latest
