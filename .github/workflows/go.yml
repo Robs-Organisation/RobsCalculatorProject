@@ -48,7 +48,7 @@ jobs:
         run: npm install
 
       - name: build with buffalo
-        run: cd /rpmbuild/sourceCode/; buffalo build -v -o CalcBuffaloBinary
+        run: cd rpmbuild/sourceCode; buffalo build -v -o CalcBuffaloBinary
 
   build_rpm:
     name: build RPM
