@@ -54,7 +54,7 @@ jobs:
         uses: naveenrajm7/rpmbuild@v1.0.0
         with:
           # path to the spec file
-          spec_file: calculator.spec
+          spec_file: rpmbuild/SPECS/calculator.spec
         
       - name: check for new builds
         run: ls
