@@ -149,5 +149,5 @@ jobs:
         run: source /etc/profile
       
       - name: Submitting a build
-        run: copr-cli build  robinba/Test-Project calculator-1.0
+        run: copr-cli build  robinba/Test-Project calculator-1.0-1.el7.src.rpm
         
