@@ -20,4 +20,4 @@ This is a description
 %install
 
 %files
-%{_bindir}/%{name}
+/usr/local/bin/calculator
