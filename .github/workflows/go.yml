@@ -109,4 +109,45 @@ jobs:
           spec_file: calculator.spec
         
       - name: check for new builds
-        run: ls
+        run: ls -lah
+      
+      - name: Upload calc RPM 
+        uses: actions/upload-artifact@v2
+        with:
+          name: calcRPM
+          path: calculator-1.0 
+        
+  uploads_to_copr:
+    name: upload rpm to copr
+    needs: build_rpm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Download calcRPM
+        uses: actions/download-artifact@v2
+        with:
+          name: calcRPM
+        
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7' 
+          architecture: 'x64'  
+      
+      - name: Set up copr-cli
+        run: pip install copr-cli
+
+      - name: safe Copr API token to the system
+        run: |
+          cd ~/.config/; echo "[copr-cli]" > copr
+          cd ~/.config/; echo "login = ${{ secrets.COPR_LOGIN }}" >> copr
+          cd ~/.config/; echo "username = ${{ secrets.COPR_USERNAME }}" >> copr
+          cd ~/.config/; echo "token = ${{ secrets.COPR_TOKEN }}" >> copr
+          cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr
+      
+      - name: restart shell to use copr-cli
+        run: source /etc/profile
+      
+      - name: check if copr-cli works
+        run: copr-cli -v
+        
