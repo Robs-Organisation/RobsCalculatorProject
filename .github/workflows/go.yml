@@ -107,15 +107,12 @@ jobs:
         with:
           # path to the spec file
           spec_file: calculator.spec
-        
-      - name: check for new builds
-        run: ls -lah
       
       - name: Upload calc RPM 
         uses: actions/upload-artifact@v2
         with:
-          name: calcRPM
-          path: calculator-1.0 
+          name: calcSRPM
+          path: rpmbuild/SRPMS/calculator-1.0-1.el7.src.rpm 
         
   uploads_to_copr:
     name: upload rpm to copr
@@ -127,11 +124,10 @@ jobs:
       - name: Download calcRPM
         uses: actions/download-artifact@v2
         with:
-          name: calcRPM
-          path: rpmbuild/
+          name: calcSRPM
        
       - name: check for file
-        run: ls rpmbuild
+        run: ls 
        
       - uses: actions/setup-python@v2
         with:
