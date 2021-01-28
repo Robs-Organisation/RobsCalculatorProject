@@ -47,7 +47,7 @@ jobs:
         run: cd rpmbuild/sourceCode; go get -u github.com/gobuffalo/buffalo/buffalo
 
       - name: Set up npm
-        run: npm install
+        run: cd rpmbuild/sourceCode;npm install npm@latest -g
 
       - name: build with buffalo
         run: cd rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
