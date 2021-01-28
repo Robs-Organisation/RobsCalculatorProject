@@ -45,8 +45,7 @@ jobs:
       - name: Upload Buffalo Binary 
         uses: actions/upload-artifact@v2
         with:
-          name: CalcBuffaloBinary
-          path: CalcBuffaloBinary   
+          name: CalcBuffaloBinary 
   
 #  build_tarball:
 #    name: Builds .tar file
@@ -86,6 +85,9 @@ jobs:
         with:
           name: CalcBuffaloBinary
           path: rpmbuild
+          
+      - name: check for download
+        run: ls rpmbuild
         
       - name: RPM Build
         # You may pin to the exact commit or the version.
