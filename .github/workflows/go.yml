@@ -52,6 +52,9 @@ jobs:
 
       - name: build with buffalo
         run: cd rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
+                
+      - name: check for new builds
+        run: ls
 
   build_rpm:
     name: build RPM
