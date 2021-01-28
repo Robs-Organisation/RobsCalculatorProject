@@ -33,13 +33,18 @@ jobs:
         with:
           go-version: 1.15
 
-      - name: get Buffalo Framwork
-        run: cd rpmbuild/sourceCode; go get -u github.com/gobuffalo/buffalo/buffalo
-
       - uses: actions/setup-python@v2
         with:
             python-version: '3.7' 
             architecture: 'x64'
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7' 
+          architecture: 'x64'
+
+      - name: get Buffalo Framwork
+        run: cd rpmbuild/sourceCode; go get -u github.com/gobuffalo/buffalo/buffalo
 
       - name: Set up npm
         run: npm install
