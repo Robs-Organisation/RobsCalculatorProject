@@ -17,9 +17,11 @@ This is a description
 %prep
 mkdir -p %{buildroot}/%{_bindir}
 
+cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary %{buildroot}/%{_bindir}/CalcBuffaloBinary
+
 %build
 
 %install
 
 %files
-%{_bindir}/%{name}
+%{_bindir}/CalcBuffaloBinary
