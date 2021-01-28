@@ -8,22 +8,8 @@ on:
     branches: [ master ]
 
 jobs:
-  build_tarball:
-    name: Builds .tar file
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      
-      - name: build .tar.gz
-        run: tar -czvf calculator-1.0.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/
-        
-      - name: Upload calculator-1.0.tar.gz 
-        uses: actions/upload-artifact@v2
-        with:
-          name: calTarball
-          path: calculator-1.0.tar.gz
-  
-  build:
+  build_with_buffalo:
+    name: build binary with Biuffalo
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -53,8 +39,38 @@ jobs:
       - name: build with buffalo
         run: cd rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
                 
-      - name: check for new builds
-        run: cd rpmbuild/sourceCode;ls
+      - name: Upload Buffalo Binary 
+        uses: actions/upload-artifact@v2
+        with:
+          name: CalcBuffaloBinary
+          path: CalcBuffaloBinary   
+  
+  build_tarball:
+    name: Builds .tar file
+    needs: build_with_buffalo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download Buffalo Binary
+        uses: actions/download-artifact@v2
+        with:
+          name: CalcBuffaloBinary
+
+      - name: move CalcBuffaloBinary
+        run: mkdir buffaloBinary;mv CalcBuffaloBinary buffaloBinary
+      
+      - name: check if move was successful
+        run: ls buffaloBinary
+
+      - name: build .tar.gz
+        run: tar -czvf calculator-1.0.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/buffaloBinary
+        
+      - name: Upload calculator-1.0.tar.gz 
+        uses: actions/upload-artifact@v2
+        with:
+          name: calTarball
+          path: calculator-1.0.tar.gz    
 
   build_rpm:
     name: build RPM
