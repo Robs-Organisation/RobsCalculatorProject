@@ -128,7 +128,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: calcRPM
-          path: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/
+          path: /home/runner/work/RobsCalculatorProject
        
       - name: check for file
         run: ls
