@@ -42,7 +42,7 @@ jobs:
             architecture: 'x64'
 
       - name: Set up npm
-        run: rm -rf node_modules && rm ./package-lock.json && npm install
+        run: npm install
 
       - name: build with buffalo
         run: cd rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
