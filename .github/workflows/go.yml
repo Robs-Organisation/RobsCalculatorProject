@@ -44,6 +44,9 @@ jobs:
       - name: Set up npm
         run: pip install npm
       
+      - name: remove node_module and install it again
+        run: cd rpmbuild/sourceCode;rm -rf node_modules; npm install
+              
       - name: check if npm works
         run: npm -v
 
