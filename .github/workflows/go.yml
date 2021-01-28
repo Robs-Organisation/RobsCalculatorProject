@@ -148,6 +148,6 @@ jobs:
       - name: restart shell to use copr-cli
         run: source /etc/profile
       
-      - name: check if copr-cli works
-        run: copr-cli -v
+      - name: Submitting a build
+        run: copr-cli build  robinba/Test-Project calculator-1.0
         
