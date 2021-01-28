@@ -38,16 +38,14 @@ jobs:
             python-version: '3.7' 
             architecture: 'x64'
 
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.7' 
-          architecture: 'x64'
-
       - name: get Buffalo Framwork
         run: cd rpmbuild/sourceCode; go get -u github.com/gobuffalo/buffalo/buffalo
 
       - name: Set up npm
-        run: cd rpmbuild/sourceCode;apt-get update -y;apt-get install nodejs npm -y
+        run: pip install npm
+      
+      - name: check if npm works
+        run: npm -v
 
       - name: build with buffalo
         run: cd rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
