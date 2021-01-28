@@ -39,6 +39,9 @@ jobs:
       - name: build with buffalo
         run: cd rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
                 
+      - name: move binary for upload
+        run: cd rpmbuild/sourceCode;mv CalcBuffaloBinary         
+                
       - name: Upload Buffalo Binary 
         uses: actions/upload-artifact@v2
         with:
@@ -58,7 +61,7 @@ jobs:
           name: CalcBuffaloBinary
 
       - name: move CalcBuffaloBinary
-        run: mkdir buffaloBinary;mv CalcBuffaloBinary buffaloBinary
+        run: mkdir buffaloBinary;mv CalcBuffaloBinary /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/
       
       - name: check if move was successful
         run: ls buffaloBinary
