@@ -128,7 +128,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: calcRPM
-        
+       
+      - name: check for file
+        run: ls
+       
       - uses: actions/setup-python@v2
         with:
           python-version: '3.7' 
