@@ -46,6 +46,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: CalcBuffaloBinary 
+          path: /RobsCalculatorProject
   
 #  build_tarball:
 #    name: Builds .tar file
