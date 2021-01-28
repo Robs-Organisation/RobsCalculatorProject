@@ -12,12 +12,14 @@ Requires:       postgresql
 %description
 This is a description
 
+%setup -c
+
 %prep
-%setup -q
+mkdir -p %{buildroot}/%{_bindir}
 
 %build
 
 %install
 
 %files
-/usr/local/bin/calculator
+%{_bindir}/%{name}
