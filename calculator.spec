@@ -25,4 +25,4 @@ cp CalcBuffaloBinary %{buildroot}/calc
 
 %files
 %defattr(0644, root,root)
-/home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary
+CalcBuffaloBinary
