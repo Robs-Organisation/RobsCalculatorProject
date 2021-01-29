@@ -12,7 +12,7 @@ Requires:       postgresql
 %description
 This is a description
 
-%setup -c
+%setup -n calculator-1.0
 
 %prep
 mkdir -p %{buildroot}%{_bindir}
