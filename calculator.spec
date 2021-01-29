@@ -17,7 +17,7 @@ This is a description
 %prep
 mkdir -p %{buildroot}/calc
 
-cp CalcBuffaloBinary %{buildroot}/calc
+cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary %{buildroot}/calc
 
 %build
 
@@ -25,4 +25,4 @@ cp CalcBuffaloBinary %{buildroot}/calc
 
 %files
 %defattr(0644, root,root)
-CalcBuffaloBinary
+/home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary
