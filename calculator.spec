@@ -17,12 +17,11 @@ This is a description
 %prep
 mkdir -p %{buildroot}/calc
 
-cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary %{buildroot}/calc
+cp %{_bindir}/CalcBuffaloBinary %{buildroot}/calc
 
 %build
 
 %install
 
 %files
-%defattr(0644, root,root)
-/home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary
+%{_bindir}/CalcBuffaloBinary
