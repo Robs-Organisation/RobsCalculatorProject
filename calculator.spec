@@ -17,7 +17,7 @@ This is a description
 %prep
 mkdir -p %{buildroot}/calc
 
-cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary %{buildroot}/calc
+cp CalcBuffaloBinary %{buildroot}/calc
 
 %build
 
