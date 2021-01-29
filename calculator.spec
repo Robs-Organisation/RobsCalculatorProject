@@ -12,7 +12,7 @@ Requires:       postgresql
 %description
 This is a description
 
-%setup -n calculator
+%setup -n RobsCalculatorProject
 
 %prep
 mkdir -p %{buildroot}%{_bindir}
