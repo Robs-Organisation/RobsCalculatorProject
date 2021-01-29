@@ -15,13 +15,14 @@ This is a description
 %setup -c
 
 %prep
-mkdir -p %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}/%{_bindir}/calc
 
-cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary %{buildroot}/%{_bindir}
+cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary %{buildroot}/%{_bindir}/calc
 
 %build
 
 %install
 
 %files
+%defattr(0644, root,root)
 /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary
