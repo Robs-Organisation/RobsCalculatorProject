@@ -15,6 +15,7 @@ This is a description
 %setup -c
 
 %prep
+mkdir -p %{buildroot}/%{_bindir}
 
 %build
 
