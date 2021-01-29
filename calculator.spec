@@ -24,4 +24,4 @@ cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBina
 %install
 
 %files
-%{_bindir}/%{name}
+/home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary
