@@ -15,9 +15,9 @@ This is a description
 %setup -c
 
 %prep
-mkdir -p %{buildroot}/%{_bindir}
+mkdir -p %{buildroot}%{_bindir}
 
-cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary  %{buildroot}/%{_bindir}/%{name}
+cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary  %{buildroot}%{_bindir}/%{name}
 
 %build
 
