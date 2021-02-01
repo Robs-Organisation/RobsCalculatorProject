@@ -13,10 +13,10 @@ Requires:       postgresql
 This is a description
 
 %prep
-
 %setup -q
+
+%build
 
 %install
 
 %files
-%{_bindir}/%{name}
