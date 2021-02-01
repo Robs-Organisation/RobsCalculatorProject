@@ -22,3 +22,6 @@ jobs:
       
       - name: Copy all the source files into
         run: cp /rpmbuild/sourceCode/ ~/rpmbuild/SOURCES
+
+      - name: check for copie
+        run: ls ~/rpmbuild/SOURCES
