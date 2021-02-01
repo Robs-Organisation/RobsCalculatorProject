@@ -23,17 +23,14 @@ jobs:
       - name: check for path
         run: pwd
       
-      - name: Copy all the source files into
+      - name: Copy all the source files into SOURCES
         run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; cp -R * ~/rpmbuild/SOURCES
 
-      - name: check for copie
-        run: ls ~/rpmbuild/SOURCES
+      - name: build .tar.gz
+        run: tar -czvf calculator-1.0.tar.gz ~/rpmbuild/SOURCES
 
       - name: move .spec File to /SPECS
         run: mv /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/calculator.spec ~/rpmbuild/SPECS
-      
-      - name: check move
-        run: ls ~/rpmbuild/SPECS
         
       - name: run rpmbuild
         run: rpmbuild -ba ~/rpmbuild/SPECS/calculator.spec
