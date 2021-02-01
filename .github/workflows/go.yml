@@ -14,12 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Create the folder tree
-        run: mkdir -p /home/runner/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
-      
-      - name: Copy all the source files into SOURCES
-        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; cp -R * /home/runner/rpmbuild/SOURCES
-
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
@@ -31,20 +25,28 @@ jobs:
             architecture: 'x64'
 
       - name: get Buffalo Framwork
-        run: cd /home/runner/rpmbuild/SOURCES; go get -u github.com/gobuffalo/buffalo/buffalo
+        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; go get -u github.com/gobuffalo/buffalo/buffalo
 
       - name: Set up npm
         run: pip install npm
       
       - name: remove node_module and install it again
-        run: cd /home/runner/rpmbuild/SOURCES;rm -rf node_modules; npm install
+        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode;rm -rf node_modules; npm install
 
       - name: check for files
-        run: cd /home/runner/rpmbuild/SOURCES; buffalo dev
-        continue-on-error: true
+        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode
 
       - name: build with buffalo
-        run: cd /home/runner/rpmbuild/SOURCES ;buffalo build -vo CalcBuffaloBinary
+        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
+        
+      - name: check for Binary
+        run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode
+
+      - name: Create the folder tree
+        run: mkdir -p /home/runner/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
+      
+      - name: Copy all the source files into SOURCES
+        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; cp -R * /home/runner/rpmbuild/SOURCES
 
       - name: build .tar.gz
         run: cd /home/runner/rpmbuild/SOURCES; tar -czvf CalcBuffaloBinary-1.0.tar.gz /home/runner/rpmbuild/SOURCES
