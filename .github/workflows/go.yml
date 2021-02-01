@@ -24,7 +24,7 @@ jobs:
         run: pwd
       
       - name: Copy all the source files into
-        run: cp -r /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/ ~/rpmbuild/SOURCES
+        run: cp -r /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode ~/rpmbuild/SOURCES
 
       - name: check for copie
         run: ls ~/rpmbuild/SOURCES
