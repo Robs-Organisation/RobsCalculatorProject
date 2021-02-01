@@ -33,8 +33,8 @@ jobs:
       - name: remove node_module and install it again
         run: cd rpmbuild/sourceCode;rm -rf node_modules; npm install
               
-      - name: check if npm works
-        run: npm -v
+      - name: remove old CalcBuffaloBinary
+        run: rm CalcBuffaloBinary
 
       - name: build with buffalo
         run: cd rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
@@ -47,7 +47,7 @@ jobs:
         with:
           author_name: ${{ secrets.COMMIT_NAME }}
           author_email:  ${{ secrets.COMMIT_EMAIL }}
-          message: 'Add CalcBuffaloBinary'
+          message: 'Remove old and Add CalcBuffaloBinary'
           add: 'CalcBuffaloBinary'
   
 #  build_tarball:
@@ -76,68 +76,62 @@ jobs:
 #          name: calTarball
 #          path: calculator-1.0.tar.gz    
 
-#  build_rpm:
-#    name: build RPM
-#    needs: build_with_buffalo
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
+  build_rpm:
+    name: build RPM
+    needs: build_with_buffalo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
         
-#      - name: Download calcBinary
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: CalcBuffaloBinary
-#          path: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/
-        
-#      - name: RPM Build
+      - name: RPM Build
         # You may pin to the exact commit or the version.
         # uses: naveenrajm7/rpmbuild@b52f0e593effaa08f4726afa0d0e2960131685c7
-#        id: rpm
-#        uses: naveenrajm7/rpmbuild@master
-#        with:
+        id: rpm
+        uses: naveenrajm7/rpmbuild@master
+         with:
           # path to the spec file
-#          spec_file: calculator.spec
+          spec_file: calculator.spec
       
-#      - name: Upload calc RPM 
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: calcSRPM
-#          path: rpmbuild/SRPMS/calculator-1.0-1.el7.src.rpm 
+      - name: Upload calc RPM 
+        uses: actions/upload-artifact@v2
+        with:
+          name: calcSRPM
+          path: rpmbuild/SRPMS/calculator-1.0-1.el7.src.rpm 
         
-#  uploads_to_copr:
-#    name: upload rpm to copr
-#    needs: build_rpm
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
+  uploads_to_copr:
+    name: upload rpm to copr
+    needs: build_rpm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       
-#      - name: Download calcRPM
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: calcSRPM
+      - name: Download calcRPM
+        uses: actions/download-artifact@v2
+        with:
+          name: calcSRPM
        
-#      - name: check for file
-#        run: ls 
+      - name: check for file
+        run: ls 
        
-#      - uses: actions/setup-python@v2
-#        with:
-#          python-version: '3.7' 
-#          architecture: 'x64'  
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7' 
+          architecture: 'x64'  
       
-#      - name: Set up copr-cli
-#        run: pip install copr-cli
+      - name: Set up copr-cli
+        run: pip install copr-cli
 
-#      - name: safe Copr API token to the system
-#        run: |
-#          cd ~/.config/; echo "[copr-cli]" > copr
-#          cd ~/.config/; echo "login = ${{ secrets.COPR_LOGIN }}" >> copr
-#          cd ~/.config/; echo "username = ${{ secrets.COPR_USERNAME }}" >> copr
-#          cd ~/.config/; echo "token = ${{ secrets.COPR_TOKEN }}" >> copr
-#          cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr
+      - name: safe Copr API token to the system
+        run: |
+          cd ~/.config/; echo "[copr-cli]" > copr
+          cd ~/.config/; echo "login = ${{ secrets.COPR_LOGIN }}" >> copr
+          cd ~/.config/; echo "username = ${{ secrets.COPR_USERNAME }}" >> copr
+          cd ~/.config/; echo "token = ${{ secrets.COPR_TOKEN }}" >> copr
+          cd ~/.config/; echo "copr_url = https://copr.fedorainfracloud.org" >> copr
       
-#      - name: restart shell to use copr-cli
-#        run: source /etc/profile
+      - name: restart shell to use copr-cli
+        run: source /etc/profile
       
-#      - name: Submitting a build
-#        run: copr-cli build  robinba/Test-Project calculator-1.0-1.el7.src.rpm
+      - name: Submitting a build
+        run: copr-cli build  robinba/Test-Project calculator-1.0-1.el7.src.rpm
         
