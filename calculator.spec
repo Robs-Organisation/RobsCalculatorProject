@@ -13,6 +13,7 @@ Requires:       postgresql
 This is a description
 
 %prep
+cp CalcBuffaloBinary CalcBuffaloBinary-1.0/
 
 %setup -q
 
