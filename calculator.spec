@@ -15,9 +15,6 @@ This is a description
 %prep
 %setup -q
 
-%build 
-make %{?_smp_mflags}
-
 %install
 %make_install
 
