@@ -13,6 +13,8 @@ Requires:       postgresql
 This is a description
 
 %prep
+cp CalcBuffaloBinary /github/home/rpmbuild/SOURCES/
+
 %setup -q
 
 %install
