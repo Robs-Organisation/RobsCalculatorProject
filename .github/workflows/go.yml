@@ -94,7 +94,7 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: naveenrajm7/rpmbuild@b52f0e593effaa08f4726afa0d0e2960131685c7
         id: rpm
-        uses: naveenrajm7/rpmbuild@centos8
+        uses: naveenrajm7/rpmbuild@master
         with:
           # path to the spec file
           spec_file: calculator.spec
