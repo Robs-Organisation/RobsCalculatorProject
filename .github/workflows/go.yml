@@ -13,18 +13,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
-      - name: check if rpm works
-        run: rpmbuild --help
 
       - name: Create the folder tree
         run: mkdir -p /home/runner/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
       
-      - name: check for path
-        run: pwd
-      
       - name: Copy all the source files into SOURCES
         run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; cp -R * /home/runner/rpmbuild/SOURCES
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15
+
+      - uses: actions/setup-python@v2
+        with:
+            python-version: '3.7' 
+            architecture: 'x64'
+
+      - name: get Buffalo Framwork
+        run: cd /home/runner/rpmbuild/SOURCES; go get -u github.com/gobuffalo/buffalo/buffalo
+
+      - name: Set up npm
+        run: pip install npm
+      
+      - name: remove node_module and install it again
+        run: cd /home/runner/rpmbuild/SOURCES;rm -rf node_modules; npm install
+
+      - name: build with buffalo
+        run: cd /home/runner/rpmbuild/SOURCES ;buffalo build -vo CalcBuffaloBinary
 
       - name: build .tar.gz
         run: cd /home/runner/rpmbuild/SOURCES; tar -czvf CalcBuffaloBinary-1.0.tar.gz /home/runner/rpmbuild/SOURCES
