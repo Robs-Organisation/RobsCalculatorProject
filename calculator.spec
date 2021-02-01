@@ -19,4 +19,4 @@ This is a description
 %install
 
 %files
-%{name}
+/%{name}
