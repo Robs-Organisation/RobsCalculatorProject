@@ -19,4 +19,4 @@ This is a description
 %install
 
 %files
-/github/home/rpmbuild/%{name}
+/home/rpmbuild/%{name}
