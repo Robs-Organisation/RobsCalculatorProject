@@ -1,4 +1,4 @@
-Name:           calculator
+Name:           CalcBuffaloBinary
 Version:        1.0
 Release:        1%{?dist}
 Summary:        a calculator to learn something about gobuffalo
@@ -12,16 +12,15 @@ Requires:       postgresql
 %description
 This is a description
 
-%setup -n RobsCalculatorProject
-
 %prep
-mkdir -p %{buildroot}%{_bindir}
+%setup -q
 
-cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary  %{buildroot}%{_bindir}
-
-%build
+%build 
+make %{?_smp_mflags}
 
 %install
+%make_install
+
 
 %files
-{_bindir}/CalcBuffaloBinary
+%{_bindir}/%{name}
