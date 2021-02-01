@@ -19,4 +19,4 @@ This is a description
 %install
 
 %files
-%{_bindir}/%{name}
+%{name}
