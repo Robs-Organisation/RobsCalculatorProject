@@ -30,9 +30,6 @@ jobs:
             python-version: '3.7' 
             architecture: 'x64'
 
-      - name: check for files
-        run: ls /home/runner/rpmbuild/SOURCES
-
       - name: get Buffalo Framwork
         run: cd /home/runner/rpmbuild/SOURCES; go get -u github.com/gobuffalo/buffalo/buffalo
 
@@ -41,6 +38,9 @@ jobs:
       
       - name: remove node_module and install it again
         run: cd /home/runner/rpmbuild/SOURCES;rm -rf node_modules; npm install
+
+      - name: check for files
+        run: ls /home/runner/rpmbuild/SOURCES
 
       - name: build with buffalo
         run: cd /home/runner/rpmbuild/SOURCES ;buffalo build -vo CalcBuffaloBinary
