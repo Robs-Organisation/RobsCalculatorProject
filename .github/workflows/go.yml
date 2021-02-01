@@ -10,7 +10,7 @@ on:
 jobs:
   checkout_rpm:
     name: checkout_rm
-    runs-on: ununut-latest
+    runs-on: ubunut-latest
     steps:
       - uses: actions/checkout@v2
       
