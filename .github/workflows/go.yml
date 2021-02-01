@@ -87,9 +87,6 @@ jobs:
           name: CalcBuffaloBinary
           path: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/
           
-      - name: cp CalcBuffaloBinary to another folder
-        run: cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary /rpmbuild/SOURCES/ 
-          
       - name: ls -l
         run: ls -l
         
