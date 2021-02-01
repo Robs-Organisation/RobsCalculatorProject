@@ -20,4 +20,4 @@ This is a description
 
 
 %files
-%{_bindir}/%{name}
+%{name}
