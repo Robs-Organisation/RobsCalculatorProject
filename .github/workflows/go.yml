@@ -88,7 +88,7 @@ jobs:
         # uses: naveenrajm7/rpmbuild@b52f0e593effaa08f4726afa0d0e2960131685c7
         id: rpm
         uses: naveenrajm7/rpmbuild@master
-         with:
+        with:
           # path to the spec file
           spec_file: calculator.spec
       
