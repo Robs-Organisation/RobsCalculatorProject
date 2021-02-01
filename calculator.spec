@@ -19,4 +19,4 @@ This is a description
 %install
 
 %files
-/home/rpmbuild/%{name}
+%{_bindir}/%{name}
