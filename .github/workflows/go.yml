@@ -20,6 +20,9 @@ jobs:
       - name: Create the folder tree
         run: mkdir -p ~/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
       
+      - name: check for path
+        run: pwd
+      
       - name: Copy all the source files into
         run: cp /rpmbuild/sourceCode/ ~/rpmbuild/SOURCES
 
