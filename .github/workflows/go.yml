@@ -8,6 +8,15 @@ on:
     branches: [ master ]
 
 jobs:
+  checkout_rpm:
+    name: checkout_rm
+    runs-on: ununut-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: check if rpm works
+        run: rpm
+  
   build_with_buffalo:
     name: build binary with Buffalo
     runs-on: ubuntu-latest
@@ -135,12 +144,3 @@ jobs:
       - name: Submitting a build
         run: copr-cli build  robinba/Test-Project calculator-1.0-1.el7.src.rpm
         
-        
-  checkout_rpm:
-    name: checkout_rm
-    runs-on: ununut-latest
-    steps:
-      - uses: actions/checkout@v2
-      
-      - name: check if rpm works
-        run: rpm
