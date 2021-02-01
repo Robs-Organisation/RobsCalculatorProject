@@ -33,7 +33,7 @@ jobs:
         run: mv /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/calculator.spec /home/runner/rpmbuild/SPECS
         
       - name: run rpmbuild
-        run: rpmbuild -ba ~/rpmbuild/SPECS/calculator.spec
+        run: rpmbuild -ba /home/runner/rpmbuild/SPECS/calculator.spec
       
       - name: check 
         run: ls; tree
