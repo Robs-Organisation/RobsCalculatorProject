@@ -40,7 +40,8 @@ jobs:
         run: cd /home/runner/rpmbuild/SOURCES;rm -rf node_modules; npm install
 
       - name: check for files
-        run: ls /home/runner/rpmbuild/SOURCES
+        run: cd /home/runner/rpmbuild/SOURCES; buffalo dev
+        continue-on-error: true
 
       - name: build with buffalo
         run: cd /home/runner/rpmbuild/SOURCES ;buffalo build -vo CalcBuffaloBinary
