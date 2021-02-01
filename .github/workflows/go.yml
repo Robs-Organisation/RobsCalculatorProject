@@ -9,8 +9,8 @@ on:
 
 jobs:
   checkout_rpm:
-    name: checkout_rm
-    runs-on: ubunut-latest
+    name: chechout Rpm
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       
