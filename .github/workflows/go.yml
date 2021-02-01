@@ -28,3 +28,15 @@ jobs:
 
       - name: check for copie
         run: ls ~/rpmbuild/SOURCES
+
+      - name: move .spec File to /SPECS
+        run: mv /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/calculator.spec ~/rpmbuild/SPECS
+      
+      - name: check move
+        run: ls ~/rpmbuild/SPECS
+        
+      - name: run rpmbuild
+        run: rpmbuild -ba ~/rpmbuild/SPECS/calculator.spec
+      
+      - name: check 
+        run: ls; tree
