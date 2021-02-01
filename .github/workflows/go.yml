@@ -42,11 +42,13 @@ jobs:
       - name: move binary for upload
         run: cd rpmbuild/sourceCode;mv CalcBuffaloBinary /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/        
                 
-      - name: Upload Buffalo Binary 
-        uses: actions/upload-artifact@v2
+      - name: Commit CalcBuffaloBinary
+        uses: EndBug/add-and-commit@v7
         with:
-          name: CalcBuffaloBinary 
-          path: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary
+          author_name: ${{ secrets.COMMIT_NAME }}
+          author_email:  ${{ secrets.COMMIT_EMAIL }}
+          message: 'Add CalcBuffaloBinary'
+          add: 'CalcBuffaloBinary'
   
 #  build_tarball:
 #    name: Builds .tar file
