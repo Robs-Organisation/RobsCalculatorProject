@@ -5,7 +5,7 @@ Summary:        a calculator to learn something about gobuffalo
 
 License:        All rights reserved
 URL:            https://github.com/Robs-Organisation/RobsCalculatorProject
-Source0:        CalcBuffaloBinary
+Source0:        https://github.com/Robs-Organisation/RobsCalculatorProject/%{name}/%{name}-%{version}.tar.gz
 
 Requires:       postgresql
 
