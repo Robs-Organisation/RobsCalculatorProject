@@ -13,7 +13,7 @@ Requires:       postgresql
 This is a description
 
 %prep
-cp /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/CalcBuffaloBinary /rpmbuild/SOURCES/
+cp CalcBuffaloBinary /rpmbuild/SOURCES/
 
 %setup -q
 
