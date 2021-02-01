@@ -18,7 +18,7 @@ jobs:
         run: rpmbuild --help
 
       - name: Create the folder tree
-        run: mkdir -p ~/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
+        run: mkdir -p /home/runner/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
       
       - name: check for path
         run: pwd
