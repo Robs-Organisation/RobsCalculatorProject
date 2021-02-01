@@ -42,13 +42,13 @@ jobs:
       - name: move binary for upload
         run: cd rpmbuild/sourceCode;mv CalcBuffaloBinary /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/        
                 
-      - name: Commit CalcBuffaloBinary
-        uses: EndBug/add-and-commit@v7
-        with:
-          author_name: ${{ secrets.COMMIT_NAME }}
-          author_email:  ${{ secrets.COMMIT_EMAIL }}
-          message: 'Remove old and Add CalcBuffaloBinary'
-          add: 'CalcBuffaloBinary'
+#      - name: Commit CalcBuffaloBinary
+#        uses: EndBug/add-and-commit@v7
+#        with:
+#          author_name: ${{ secrets.COMMIT_NAME }}
+#          author_email:  ${{ secrets.COMMIT_EMAIL }}
+#          message: 'Remove old and Add CalcBuffaloBinary'
+#          add: 'CalcBuffaloBinary'
   
 #  build_tarball:
 #    name: Builds .tar file
@@ -135,3 +135,12 @@ jobs:
       - name: Submitting a build
         run: copr-cli build  robinba/Test-Project calculator-1.0-1.el7.src.rpm
         
+        
+  checkout_rpm:
+    name: checkout_rm
+    runs-on: ununut-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: check if rpm works
+        run: rpm
