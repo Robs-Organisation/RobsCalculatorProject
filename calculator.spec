@@ -21,4 +21,4 @@ This is a description
 
 
 %files
-%{name}
+/%{name}
