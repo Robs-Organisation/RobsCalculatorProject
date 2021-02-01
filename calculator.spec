@@ -17,7 +17,7 @@ This is a description
 %setup -q
 
 %install
-%make_install
+
 
 
 %files
