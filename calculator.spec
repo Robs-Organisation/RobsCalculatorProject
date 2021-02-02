@@ -7,8 +7,6 @@ License:        All rights reserved
 URL:            https://github.com/Robs-Organisation/RobsCalculatorProject
 Source0:        CalcBuffaloBinary-1.0.tar.gz
 
-Requires:       postgresql
-
 %description
 This is a description
 
