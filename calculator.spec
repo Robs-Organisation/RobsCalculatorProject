@@ -15,7 +15,7 @@ This is a description
 %prep
 mkdir -p %{buildroot}/%{_bindir}
 
-cp /home/runner/rpmbuild/SOURCES/{name}  %{buildroot}/%{_bindir}/%{name}
+cp /home/runner/rpmbuild/SOURCES/%{name}  %{buildroot}/%{_bindir}/%{name}
 
 %setup
 
