@@ -19,8 +19,8 @@ This is a description
 %build
 make 
 
-%install
-make install
+install -m 755 -d $RPM_BUILD_ROOT/%{_sbindir}
+ln -s ../bin/CalcBuffaloBinary $RPM_BUILD_ROOT/%{_sbindir}
 
 %files
-%{_bindir}/%{name}
+%{_bindir}/*
