@@ -13,10 +13,13 @@ Requires:       postgresql
 This is a description
 
 %prep
-%setup -q
+%setup
 
 %build
+make 
 
 %install
+make install
 
 %files
+/usr/local/bin/CalcBuffaloBinary
