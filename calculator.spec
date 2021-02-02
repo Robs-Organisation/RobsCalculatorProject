@@ -13,10 +13,11 @@ This is a test to build an RPM with my calculator.
 
 %prep
 mkdir -p %{buildroot}%{_bindir}
+ls %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}
+ls  %{buildroot}%{_sysconfdir}/%{name}
 
 %setup -q
-
 
 %install
 rm -rf $RPM_BUILD_ROOT
