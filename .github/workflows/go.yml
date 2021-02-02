@@ -32,7 +32,6 @@ jobs:
       - name: remove node_module and install it again
         run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode;rm -rf node_modules; npm install
 
-
       - name: build with buffalo
         run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
 
