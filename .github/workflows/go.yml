@@ -44,6 +44,9 @@ jobs:
       - name: Create the folder tree
         run: mkdir -p /home/runner/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
       
+      - name: check for files
+        run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode
+      
       - name: build .tar.gz
         run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; tar -czvf archive.tar.gz      
       
