@@ -13,21 +13,16 @@ This is a test to build an RPM with my calculator.
 
 %prep
 mkdir -p %{buildroot}%{_bindir}
-ls %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}
-ls  %{buildroot}%{_sysconfdir}/%{name}
 
 %setup -q
 
 %install
-rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/opt/calculator
 install CalcBuffaloBinary $RPM_BUILD_ROOT/opt/calculator/CalcBuffaloBinary
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 
 %files
 %defattr(-,root,root,-)
