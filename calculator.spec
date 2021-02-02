@@ -20,8 +20,8 @@ This is a description
 make 
 
 %install 
-install -m 0755 -d %{buildroot}/%{_datadir}/
-cp -a data/* %{buildroot}/%{_datadir}/
+install -m 0755 -d %{buildroot}/%{_datadir}/CalcBuffaloBinary
+cp -a data/* %{buildroot}/%{_datadir}/CalcBuffaloBinary
 
 %files
 %{_datadir}/CalcBuffaloBinary
