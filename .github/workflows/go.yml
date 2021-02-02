@@ -48,7 +48,7 @@ jobs:
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode
       
       - name: build .tar.gz
-        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; tar -czvf archive.tar.gz      
+        run: tar -czvf archive.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode      
       
       - name: Copy all the source files into SOURCES
         run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; cp -R * /home/runner/rpmbuild/SOURCES
