@@ -12,6 +12,8 @@ Requires:       postgresql
 This is a test to build an RPM with my calculator.
 
 %prep
+mkdir -p %{buildroot}/%{_sysconfdir}/%{name}
+
 %setup -q
 
 
