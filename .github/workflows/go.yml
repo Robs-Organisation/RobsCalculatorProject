@@ -45,7 +45,7 @@ jobs:
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode
       
       - name: Copy all the source files into SOURCES
-        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/CalcBuffaloBinary-1.0.tar.gz; cp -R CalcBuffaloBinary-1.0.tar.gz /home/runner/rpmbuild/SOURCES
+        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; cp -R CalcBuffaloBinary-1.0.tar.gz /home/runner/rpmbuild/SOURCES
 
       - name: see if file moved
         run: ls /home/runner/rpmbuild/SOURCES
