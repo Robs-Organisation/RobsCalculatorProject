@@ -1,23 +1,31 @@
-Name:           CalcBuffalo
+Name:           calculator
 Version:        1.0
 Release:        1%{?dist}
-Summary:        a calculator to learn something about gobuffalo
+Summary:        Calculaor with Buffalo
 
-License:        All rights reserved
-URL:            https://github.com/Robs-Organisation/RobsCalculatorProject
 Source0:        CalcBuffaloBinary-1.0.tar.gz
 
+Requires:       postgresql
+
 %description
-This is a description
+This is a test to build an RPM with my calculator.
 
 %prep
+%setup -q
 
-%setup
 
-%build
-make 
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/opt/calculator
+install CalcBuffaloBinary $RPM_BUILD_ROOT/opt/calculator/CalcBuffaloBinary
 
-%install 
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 
 %files
-%{_datadir}/*
+%defattr(-,root,root,-)
+/opt/calculator/CalcBuffaloBinary
+
+%changelog
