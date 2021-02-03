@@ -74,4 +74,4 @@ jobs:
         run: source /etc/profile
       
       - name: Submitting a build
-        run: copr-cli build  robinba/Test-Project 
+        run: copr-cli build  robinba/Test-Project /home/runner/rpmbuild/SRPMS/calculator-1.0-1.src.rpm
