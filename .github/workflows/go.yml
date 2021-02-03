@@ -13,21 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Create Release with CalcBuffaloBinary, RPM, SRPM
-        id: create_release_with_CalcBuffaloBinary_RPM_SRPM
+      - name: release
         uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: create_release
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - Upload CalcBuffaloBinary
-            - Upload RPM
-            - Upload SRPM
           draft: false
           prerelease: false
+          release_name: ${{ steps.version.outputs.version }}
+          tag_name: ${{ github.ref }}
+          body_path: |
+            - Changelog
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Set up Go
         uses: actions/setup-go@v2
