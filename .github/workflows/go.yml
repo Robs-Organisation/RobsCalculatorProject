@@ -38,14 +38,14 @@ jobs:
       - name: Create the folder tree
         run: mkdir -p /home/runner/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
            
-#      - name: build .tar.gz
-#        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/; tar -czvf CalcBuffaloBinary-1.0.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/CalcBuffaloBinary 
+      - name: build .tar.gz
+        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/; tar -czvf CalcBuffaloBinary-1.0.tar.gz /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/CalcBuffaloBinary 
       
       - name: check for files
         run: ls /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode
       
       - name: Copy all the source files into SOURCES
-        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; cp -R CalcBuffaloBinary /home/runner/rpmbuild/SOURCES
+        run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode; cp -R CalcBuffaloBinary-1.0.tar.gz /home/runner/rpmbuild/SOURCES
 
       - name: see if file moved
         run: ls /home/runner/rpmbuild/SOURCES
