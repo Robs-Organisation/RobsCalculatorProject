@@ -13,17 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
           
-#      - name: Create Release
-#        id: create_release
-#        uses: actions/create-release@v1
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          tag_name: ${{ github.ref }}
-#          release_name: Release ${{ github.ref }}
-#          body: Calculator Buffalo Binary
-#          draft: false
-#          prerelease: false          
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: Calculator Buffalo Binary
+          draft: false
+          prerelease: false          
           
       - name: Set up Go
         uses: actions/setup-go@v2
@@ -93,3 +93,45 @@ jobs:
       
       - name: Submitting a build
         run: copr-cli build  robinba/Test-Project /home/runner/rpmbuild/SRPMS/calculator-1.0-1.src.rpm
+        
+  release-files:
+    name: Release files to GitHub Releases
+    runs-on: ubuntu-latest
+    needs: [checkout_rpm]
+    steps:
+      - name: Download content
+        uses: actions/download-artifact@v2
+        with:
+          name: CalcBuffaloBinary
+      
+      - name: Create GitHub Release
+        id: create-new-release
+        uses: actions/create-release@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }}
+          release_name: Release V${{ github.run_number }}
+      
+      - name: upload asset to GitHub Release
+        uses: actions/upload-release-asset@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+          asset_path: ./CalcBuffaloBinary
+          asset_name: CalcBuffaloBinary-v${{ github.run_number }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
