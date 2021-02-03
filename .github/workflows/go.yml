@@ -65,8 +65,8 @@ jobs:
       - name: Upload artifact RPM
         uses: actions/upload-artifact@v2
         with:
-          name: calculator-1.0-1.src.rpm
-          path: /home/runner/rpmbuild/SRPMS/calculator-1.0-1.src.rpm 
+          name: x86_64
+          path: /home/runner/rpmbuild/RPMS/x86_64
 
       - name: build SRPM
         run: rpmbuild -bs /home/runner/rpmbuild/SPECS/calculator.spec        
@@ -123,7 +123,7 @@ jobs:
       - name: Download content
         uses: actions/download-artifact@v2
         with:
-          name: calculator-1.0-1.src.rpm
+          name: x86_64
 
       - name: upload asset to GitHub Release
         uses: actions/upload-release-asset@v1
@@ -131,9 +131,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-          asset_path: ./calculator-1.0-1.src.rpm
-          asset_name: calculator-1.0-1.src.rpm-v${{ github.run_number }}
-          asset_content_type: application/zip
+          asset_path: ./x86_64
+          asset_name: x86_64-v${{ github.run_number }}
+          asset_content_type: application/octet-stream
 
 
 
