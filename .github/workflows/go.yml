@@ -134,10 +134,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-          asset_path: ./SRPM
+          asset_path: ./calculator-1.0-1.src.rpm
           asset_name: SRPM-v${{ github.run_number }}
           asset_content_type: application/zip
-        continue-on-error: True
 
       - name: Download content
         uses: actions/download-artifact@v2
@@ -150,10 +149,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-          asset_path: ./RPM
+          asset_path: ./ calculator-1.0-1.x86_64.rpm
           asset_name: RPM-v${{ github.run_number }}
           asset_content_type: application/octet-stream
-        continue-on-error: True
 
       - name: check for files
         run: ls
