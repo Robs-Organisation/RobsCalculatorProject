@@ -15,7 +15,7 @@ This is a test to build an RPM with my calculator.
 mkdir -p %{buildroot}%{_bindir}
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}
 
-%setup -q
+%setup -c
 
 %install
 install -d $RPM_BUILD_ROOT/opt/calculator
