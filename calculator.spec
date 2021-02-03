@@ -4,8 +4,7 @@ Release:        1%{?dist}
 Summary:        Calculaor with Buffalo
 
 License:        All rights reserved
-#Source0:        CalcBuffaloBinary-1.0.tar.gz
-Source0:        CalcBuffaloBinary
+Source0:        CalcBuffaloBinary-1.0.tar.gz
 
 Requires:       postgresql
 
