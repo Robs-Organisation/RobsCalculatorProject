@@ -50,6 +50,17 @@ jobs:
       - name: build with buffalo
         run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
 
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/CalcBuffaloBinary
+          asset_name: CalcBuffaloBinary
+          asset_content_type: CalcBuffaloBinary
+
       - name: Create the folder tree
         run: mkdir -p /home/runner/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
            
