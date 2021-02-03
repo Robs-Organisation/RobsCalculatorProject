@@ -24,6 +24,7 @@ jobs:
           body: Calculator Buffalo Binary
           draft: false
           prerelease: false          
+        continue-on-error: True  
           
       - name: Set up Go
         uses: actions/setup-go@v2
