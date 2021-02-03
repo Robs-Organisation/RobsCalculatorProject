@@ -107,7 +107,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-new-release.outputs.upload_url }}
-          asset_path: ./CalcBuffaloBinary
+          asset_path: ./CalcBuffaloBinary-1.0.tar.gz
           asset_name: CalcBuffaloBinary-v${{ github.run_number }}
           asset_content_type: application/zip
 
