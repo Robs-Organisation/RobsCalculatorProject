@@ -53,8 +53,11 @@ jobs:
       - name: move .spec File to /SPECS
         run: mv /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/calculator.spec /home/runner/rpmbuild/SPECS
         
-      - name: run rpmbuild
+      - name: build RPM
         run: rpmbuild -bb /home/runner/rpmbuild/SPECS/calculator.spec
+      
+      - name: build SRPM
+        run: rpmbuild -bs /home/runner/rpmbuild/SPECS/calculator.spec
             
       - name: Set up copr-cli
         run: pip install copr-cli
@@ -71,4 +74,4 @@ jobs:
         run: source /etc/profile
       
       - name: Submitting a build
-        run: copr-cli build  robinba/Test-Project /home/runner/rpmbuild/RPMS/x86_64/calculator-1.0-1.x86_64.rpm
+        run: copr-cli build  robinba/Test-Project 
