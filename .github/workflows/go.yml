@@ -56,5 +56,8 @@ jobs:
       - name: run rpmbuild
         run: rpmbuild -bb /home/runner/rpmbuild/SPECS/calculator.spec
       
-      - name: check 
-        run: ls; tree
+      - name: check for builds 
+        run: ls /home/runner/rpmbuild/RPMS
+      
+      - name: check for builds
+        run: ls /home/runner/rpmbuild/SRPMS
