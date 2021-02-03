@@ -13,11 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Create release
-        uses: Roang-zero1/github-create-release-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
@@ -39,16 +34,6 @@ jobs:
 
       - name: build with buffalo
         run: cd /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode;buffalo build -vo CalcBuffaloBinary
-
-      - name: upload BuffaloBinary
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/CalcBuffaloBinary
-          asset_name: CalcBuffaloBinar
-          asset_content_type: CalcBuffaloBinar/binary
 
       - name: Create the folder tree
         run: mkdir -p /home/runner/rpmbuild/{SPECS,SOURCES,BUILD,BUILDROOT,RPMS,SRPMS}
@@ -72,16 +57,7 @@ jobs:
         run: rpmbuild -bb /home/runner/rpmbuild/SPECS/calculator.spec        
 
       - name: build SRPM
-        run: rpmbuild -bs /home/runner/rpmbuild/SPECS/calculator.spec
-
-      - name: Create GitHub release
-        uses: Roang-zero1/github-upload-release-artifacts-action@master
-        with:
-          args:
-          - /home/runner/work/RobsCalculatorProject/RobsCalculatorProject/rpmbuild/sourceCode/CalcBuffaloBinary
-          - /home/runner/rpmbuild/SRPMS/calculator-1.0-1.src.rpm
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}            
+        run: rpmbuild -bs /home/runner/rpmbuild/SPECS/calculator.spec        
             
       - name: Set up copr-cli
         run: pip install copr-cli
