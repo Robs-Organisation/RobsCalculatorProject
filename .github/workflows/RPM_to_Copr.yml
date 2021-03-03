@@ -126,7 +126,7 @@ jobs:
       - name: Download content
         uses: actions/download-artifact@v2
         with:
-          name: SRPM
+          name: calculator-1.0-1.src.rpm
 
       - name: upload asset to GitHub Release
         uses: actions/upload-release-asset@v1
