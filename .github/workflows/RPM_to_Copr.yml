@@ -74,7 +74,7 @@ jobs:
       - name: Upload artifact SRPM
         uses: actions/upload-artifact@v2
         with:
-          name: SRPM
+          name: calculator-1.0-1.src.rpm
           path: /home/runner/rpmbuild/SRPMS/calculator-1.0-1.src.rpm          
             
       - name: Set up copr-cli
